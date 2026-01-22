@@ -1,0 +1,117 @@
+system ScrewDetection
+
+//////////////////////
+// Robotic Platform //
+//////////////////////
+interface Movement {
+	move(position : real * real * real, orientation : real * real * real)
+}
+
+interface Gripper {
+	grip()
+	release()
+	activateTool()
+	deactivateTool()
+}
+
+// an image taken by the camera, with RGB values for each pixel
+datatype ImageData {
+	pixels : Seq(Seq(nat*nat*nat)) // indexed as pixels[x][y], so the inner seq is a row and size(pixels) == height
+	height : nat
+	width : nat
+}
+
+interface Camera {
+	event getImage : ImageData
+	event lightLevel : real
+}
+
+interface ArmSensors {
+	event forceTorque : (real * real * real) * (real * real * real)
+	event positionOrientation : (real * real * real) * (real * real * real)
+}
+
+robotic platform UR5WithCamera {
+	provides Movement
+	provides Gripper
+	uses Camera
+	uses ArmSensors
+}
+
+////////////////////
+// Managed System //
+////////////////////
+
+// identifies the position of an object in an image and the confidence of its detection
+datatype EstimatedPosition {
+	// topLeft and bottomRight use nat because they index pixels in a sequence
+	topLeft : nat * nat
+	bottomRight : nat * nat
+	confidence : real
+}
+
+// an image taken by the camera with metadata about the position and orientation
+// it was taken from, and the estimated positions of any screws detected
+datatype ScrewImageData {
+	position : real * real * real
+	orientation : real * real * real
+	image : ImageData
+	screwsDetected : Seq(EstimatedPosition)
+}
+
+layer ScrewDetection : ControlLayer {
+	requires Movement
+	uses ArmSensors
+	uses Camera
+	
+	outputs = imageTaken : ScrewImageData, ambientLight : real, currentModel : nat;
+	inputs = switchModel : nat;
+	
+};
+
+///////////////////
+// MAPLE-K layer //
+///////////////////
+
+layer Adaptation : PlanningLayer {
+	inputs = imageTaken : ScrewImageData, ambientLight : real, currentModel : nat;
+	outputs = switchModel : nat;
+	
+	pattern = MAPLE-K;
+	
+	monitor {
+		// record the images that have been taken and ambient light levels, pass to analyse when new image comes in
+		inputs = imageTaken, ambientLight, currentModel;
+		processed_data_type = ScrewImageData * real * nat;
+		recorded_data = imagesWithLight : Seq(ScrewImageData * real * nat);
+	}
+	analyse {
+		// evaluate confidence trends, classify lighting, flag uncertainty
+		// give indices of images in recorded data that have unacceptable uncertainty with current lighting conditions
+		analysis_results = imagesWithPoorLight : Seq(nat);
+	}
+	plan {
+		// choose index of new model in array of models
+		plan_data = newModel : nat;
+	}
+	legitimate {
+		// evaluate the problematic images identified in analysis using new model
+		// record new screw detections with confidences for each image
+		verification_info = newConfidences : Seq(Seq(EstimatedPosition));
+	}
+	execute {
+		// issue the commands in order (possibly waiting to make sure changes of position can take effect)
+		outputs = switchModel;
+	}
+};
+
+/////////////////
+// Connections //
+/////////////////
+
+connections =
+	ScrewDetection on imageTaken to Adaptation on imageTaken,
+	ScrewDetection on ambientLight to Adaptation on ambientLight,
+	ScrewDetection on currentModel to Adaptation on currentModel,
+	Adaptation on switchModel to ScrewDetection on switchModel;
+	

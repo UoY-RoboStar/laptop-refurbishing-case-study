@@ -1,0 +1,43 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Screwdetection.csp"
+
+
+
+-- generate Screwdetection_ScrewDetection
+P_Screwdetection_ScrewDetection = let
+	id__ = 0
+	
+	
+	
+		
+within
+	Screwdetection::ScrewDetection::O__(id__)
+
+assert P_Screwdetection_ScrewDetection :[deadlock-free]	
+assert P_Screwdetection_ScrewDetection;RUN({r__}) :[deadlock-free]
+assert P_Screwdetection_ScrewDetection :[deterministic]
+assert P_Screwdetection_ScrewDetection :[divergence-free]
+
+-- generate Screwdetection_ScrewDetection_stm0
+P_Screwdetection_ScrewDetection_stm0 = let
+	id__ = 0
+	
+	
+	
+within
+	Screwdetection::ScrewDetection::stm0::O__(
+		id__
+	)
+assert P_Screwdetection_ScrewDetection_stm0 :[deadlock-free]	
+assert P_Screwdetection_ScrewDetection_stm0;RUN({r__}) :[deadlock-free]
+assert P_Screwdetection_ScrewDetection_stm0 :[deterministic]
+assert P_Screwdetection_ScrewDetection_stm0 :[divergence-free]
+

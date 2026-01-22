@@ -1,0 +1,87 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "ScrewDetection.csp"
+
+
+
+
+-- generate ScrewDetection_ScrewDetection
+P_ScrewDetection_ScrewDetection = let
+	id__ = 0
+	
+	
+	
+	const_Adaptation_Adaptation_stm_ref2_NUM_MODELS = const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS
+	const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING = const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL = const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+	const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD = const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING = const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+		
+	
+within
+	ScrewDetection::ScrewDetection::O__(id__,
+			    const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref2_NUM_MODELS,
+			    const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL)
+assert P_ScrewDetection_ScrewDetection :[deadlock-free]	
+assert P_ScrewDetection_ScrewDetection;RUN({r__}) :[deadlock-free]
+assert P_ScrewDetection_ScrewDetection :[deterministic]
+assert P_ScrewDetection_ScrewDetection :[divergence-free]
+
+-- generate ScrewDetection_ScrewDetection_ctrl_ref0
+P_ScrewDetection_ScrewDetection_ctrl_ref0 = let
+	id__ = 0
+	
+	
+	
+		
+within
+	ScrewDetection::ScrewDetection::ctrl_ref0::O__(id__)
+
+assert P_ScrewDetection_ScrewDetection_ctrl_ref0 :[deadlock-free]	
+assert P_ScrewDetection_ScrewDetection_ctrl_ref0;RUN({r__}) :[deadlock-free]
+assert P_ScrewDetection_ScrewDetection_ctrl_ref0 :[deterministic]
+assert P_ScrewDetection_ScrewDetection_ctrl_ref0 :[divergence-free]
+
+-- generate ScrewDetection_ScrewDetection_ctrl_ref1
+P_ScrewDetection_ScrewDetection_ctrl_ref1 = let
+	id__ = 0
+	
+	
+	
+	const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING = const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD = const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref2_NUM_MODELS = const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS
+	const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING = const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL = const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+		
+within
+	ScrewDetection::ScrewDetection::ctrl_ref1::O__(id__,
+			    const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref2_NUM_MODELS,
+			    const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL)
+
+assert P_ScrewDetection_ScrewDetection_ctrl_ref1 :[deadlock-free]	
+assert P_ScrewDetection_ScrewDetection_ctrl_ref1;RUN({r__}) :[deadlock-free]
+assert P_ScrewDetection_ScrewDetection_ctrl_ref1 :[deterministic]
+assert P_ScrewDetection_ScrewDetection_ctrl_ref1 :[divergence-free]
+

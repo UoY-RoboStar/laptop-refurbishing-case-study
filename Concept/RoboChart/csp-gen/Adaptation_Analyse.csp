@@ -1,0 +1,21 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "defs/function_toolkit_defs.csp"
+include "defs/robochart_defs.csp"
+include "defs/state_defs.csp"
+include "defs/core_defs.csp"
+include "defs/sequence_toolkit_defs.csp"
+include "defs/Adaptation_Analyse.csp"
+include "defs/set_toolkit_defs.csp"
+include "defs/Adaptation_Analyse_defs.csp"
+include "instantiations.csp"
+include "defs/Types_defs.csp"
+include "defs/relation_toolkit_defs.csp"
+channel r__

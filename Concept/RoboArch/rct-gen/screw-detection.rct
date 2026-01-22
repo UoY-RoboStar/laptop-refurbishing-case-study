@@ -1,0 +1,12 @@
+package ScrewDetection import Screwdetection::* import Adaptation::* import Types::* module ScrewDetection {
+	connection ctrl_ref0 on imageTaken to ctrl_ref1 on imageTaken ( _async )
+	connection ctrl_ref0 on ambientLight to ctrl_ref1 on ambientLight ( _async )
+	connection ctrl_ref0 on currentModel to ctrl_ref1 on currentModel ( _async )
+	connection ctrl_ref1 on switchModel to ctrl_ref0 on switchModel ( _async )
+	cref ctrl_ref0 = ScrewDetection
+	cref ctrl_ref1 = Adaptation
+	robotic platform UR5WithCamera {
+		uses Camera uses ArmSensors provides Movement provides Gripper }
+
+}
+

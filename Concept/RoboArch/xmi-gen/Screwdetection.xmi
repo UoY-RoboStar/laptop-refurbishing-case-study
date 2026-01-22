@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<robochart:RCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart" name="Screwdetection">
+  <imports importedNamespace="ScrewDetection::*"/>
+  <imports importedNamespace="Types::*"/>
+  <controllers name="ScrewDetection">
+    <events name="switchModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <events name="imageTaken">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
+      </type>
+    </events>
+    <events name="ambientLight">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      </type>
+    </events>
+    <events name="currentModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <rInterfaces href="Types.xmi#//@interfaces.0"/>
+    <interfaces href="Types.xmi#//@interfaces.3"/>
+    <interfaces href="Types.xmi#//@interfaces.2"/>
+    <machines xsi:type="robochart:StateMachineDef" name="stm0">
+      <nodes xsi:type="robochart:Initial" name="i0"/>
+      <nodes xsi:type="robochart:State" name="s0"/>
+      <transitions name="i0Tos0" source="//@controllers.0/@machines.0/@nodes.0" target="//@controllers.0/@machines.0/@nodes.1"/>
+    </machines>
+  </controllers>
+</robochart:RCPackage>

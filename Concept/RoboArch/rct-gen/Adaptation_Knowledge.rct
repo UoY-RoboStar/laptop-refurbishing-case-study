@@ -1,0 +1,126 @@
+package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
+	uses Adaptation_RecordedData uses Adaptation_AnalysisResults uses Adaptation_PlanData uses Adaptation_VerificationInfo uses Adaptation_RecordedData_events uses Adaptation_RecordedData_set_events uses Adaptation_RecordedData_ext_events uses Adaptation_RecordedData_Analyse_events uses Adaptation_RecordedData_Plan_events uses Adaptation_RecordedData_Legitimate_events uses Adaptation_AnalysisResults_events uses Adaptation_AnalysisResults_set_events uses Adaptation_AnalysisResults_ext_events uses Adaptation_AnalysisResults_Plan_events uses Adaptation_AnalysisResults_Legitimate_events uses Adaptation_PlanData_events uses Adaptation_PlanData_set_events uses Adaptation_PlanData_ext_events uses Adaptation_PlanData_Legitimate_events uses Adaptation_PlanData_Execute_events uses Adaptation_VerificationInfo_events uses Adaptation_VerificationInfo_set_events uses Adaptation_VerificationInfo_ext_events uses Adaptation_VerificationInfo_Plan_events initial i0
+	state Knowledge {
+	}
+	transition t0 {
+		from i0
+		to Knowledge
+	}
+	transition imagesWithLight_get_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithLight
+		action imagesWithLight ! imagesWithLight_var
+	}
+	transition imagesWithLight_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_imagesWithLight ? imagesWithLight_var
+	}
+	transition imagesWithLight_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithLight_ext
+		action imagesWithLight_ext ! imagesWithLight_var
+	}
+	transition imagesWithLight_get_Analyse_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithLight_Analyse
+		action imagesWithLight_Analyse ! imagesWithLight_var
+	}
+	transition imagesWithLight_get_Plan_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithLight_Plan
+		action imagesWithLight_Plan ! imagesWithLight_var
+	}
+	transition imagesWithLight_get_Legitimate_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithLight_Legitimate
+		action imagesWithLight_Legitimate ! imagesWithLight_var
+	}
+	transition imagesWithPoorLight_get_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithPoorLight
+		action imagesWithPoorLight ! imagesWithPoorLight_var
+	}
+	transition imagesWithPoorLight_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_imagesWithPoorLight ? imagesWithPoorLight_var
+	}
+	transition imagesWithPoorLight_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithPoorLight_ext
+		action imagesWithPoorLight_ext ! imagesWithPoorLight_var
+	}
+	transition imagesWithPoorLight_get_Plan_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithPoorLight_Plan
+		action imagesWithPoorLight_Plan ! imagesWithPoorLight_var
+	}
+	transition imagesWithPoorLight_get_Legitimate_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_imagesWithPoorLight_Legitimate
+		action imagesWithPoorLight_Legitimate ! imagesWithPoorLight_var
+	}
+	transition newModel_get_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newModel
+		action newModel ! newModel_var
+	}
+	transition newModel_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_newModel ? newModel_var
+	}
+	transition newModel_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newModel_ext
+		action newModel_ext ! newModel_var
+	}
+	transition newModel_get_Legitimate_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newModel_Legitimate
+		action newModel_Legitimate ! newModel_var
+	}
+	transition newModel_get_Execute_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newModel_Execute
+		action newModel_Execute ! newModel_var
+	}
+	transition newConfidences_get_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newConfidences
+		action newConfidences ! newConfidences_var
+	}
+	transition newConfidences_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_newConfidences ? newConfidences_var
+	}
+	transition newConfidences_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newConfidences_ext
+		action newConfidences_ext ! newConfidences_var
+	}
+	transition newConfidences_get_Plan_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newConfidences_Plan
+		action newConfidences_Plan ! newConfidences_var
+	}
+}
+

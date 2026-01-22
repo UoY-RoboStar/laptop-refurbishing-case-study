@@ -1,0 +1,34 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Adaptation_Legitimate.csp"
+
+-- generate Adaptation_Legitimate_Adaptation_Legitimate
+P_Adaptation_Legitimate_Adaptation_Legitimate = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation_Legitimate::Adaptation_Legitimate::O__(
+		id__,
+		const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+	)
+assert P_Adaptation_Legitimate_Adaptation_Legitimate :[deadlock-free]	
+assert P_Adaptation_Legitimate_Adaptation_Legitimate;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Legitimate_Adaptation_Legitimate :[deterministic]
+assert P_Adaptation_Legitimate_Adaptation_Legitimate :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Legitimate_Adaptation_Legitimate[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Legitimate_Adaptation_Legitimate
+
+
+

@@ -1,0 +1,165 @@
+package Adaptation_Analyse
+
+import Types::*
+import sequence_toolkit::*
+
+
+
+function predecessor(x : nat) : nat {
+	postcondition result == if x == 0 then 0 else x-1 end
+}
+
+
+stm Adaptation_Analyse { 
+	
+	 event anomalyFound
+	 event processedData : ScrewImageData * real * nat
+	 event adaptationCompleted
+	
+	uses Adaptation_AnalysisResults_events
+	uses Adaptation_AnalysisResults_set_events
+	uses Adaptation_AnalysisResults
+	uses Adaptation_RecordedData_events
+	uses Adaptation_RecordedData
+	
+	var data : ScrewImageData * real * nat 
+	var anomalyDetected : boolean 
+	var awaitingAdaptation : boolean
+	
+	const CONFIDENCE_THRESHOLD : real
+	const IDEAL_LIGHTING : nat -> real * real
+	const ANOMALY_TIME_THRESHOLD : nat
+	var currentModel : nat
+	var i : nat
+	var image : ScrewImageData
+	var light : real
+	var model : nat
+
+	initial i0
+
+	 state Initialise { 
+	}
+
+	 state WaitForData { 
+	}
+
+	 state AnalyseAnomaly {
+	 		// get the images and light levels from the knowledge base
+	 	entry get_imagesWithLight; imagesWithLight?imagesWithLight_var; currentModel = data[3]; imagesWithPoorLight_var = <>
+	 	
+	 		// look at the confidence levels, beginning with the latest image
+	 		// stop when we are no longer considering the current model
+	 		// are the confidence levels below the threshold? Were any screws found?
+	 		// if an image is bad, consider if the lighting is within the correct range for the model
+	 		// put the low confidence, bad lighting images into the imagesWithPoorLight list (locally, not in the knowledge base yet)
+	 	
+	 	initial i0
+	 	
+	 	state CheckConfidence {
+	 		entry if i > 0 then
+	 			image = (imagesWithLight_var[i])[1];
+	 			light = (imagesWithLight_var[i])[2];
+	 			model = (imagesWithLight_var[i])[3];
+	 			// stop at the last point where the model changed
+	 			if model == currentModel then
+	 				// check if any screws were confidently detected and whether lighting conditions were poor for the screws not being detected
+					if filter(image.screwsDetected, {screw : EstimatedPosition | screw.confidence >= CONFIDENCE_THRESHOLD}) == <> 
+						/\ (light < (IDEAL_LIGHTING(model))[1] \/ light > (IDEAL_LIGHTING(model))[2]) then
+							// add to the list of poor lighting
+							imagesWithPoorLight_var = <i> ^ imagesWithPoorLight_var; i = predecessor(i)
+					else
+						// nothing to add to the list, is this the second in a row?
+						if i+1 < head(imagesWithPoorLight_var) then
+							// stop at this point, we have had two good images in a row, so problems must have developed after this
+							i = 0
+						else
+							i = predecessor(i)
+						end
+					end
+				else
+					i = 0
+	 			end
+	 		end
+	 	}
+	 	
+	 	final f0
+	 	
+	 	transition t0 {
+	 		from i0
+	 		to CheckConfidence
+	 		action i = size(imagesWithLight_var)
+	 	}
+	 	
+	 	transition t1 {
+	 		from CheckConfidence
+	 		to CheckConfidence
+	 		condition i > 0
+	 	}
+	 	
+	 	transition t2 {
+	 		from CheckConfidence
+	 		to f0
+	 		condition i <= 0
+	 	}
+	}
+
+	state AnalysisComplete {
+		// check indices identified in previous step
+		// has this been a problem for too many consecutive (or near-consecutive) samples?
+		// if yes, report anomaly and write analysisResults
+		entry if size(imagesWithPoorLight_var) > 0 then
+			anomalyDetected = true;
+			set_imagesWithPoorLight!imagesWithPoorLight_var
+		end
+	}
+
+	transition t0 {
+		from i0
+		to Initialise
+	}
+
+	transition t1 {
+		from Initialise
+		to WaitForData
+	}
+
+	transition t2 {
+		from WaitForData
+		to WaitForData
+		trigger adaptationCompleted 
+	  	action awaitingAdaptation = false  
+	
+	}
+
+	transition t3 {
+		from WaitForData
+		to AnalyseAnomaly
+		trigger processedData ? data 
+	}
+
+	transition t4 {
+		from AnalyseAnomaly
+		to AnalysisComplete
+	}
+
+	transition t5 {
+		from AnalysisComplete
+		to WaitForData
+		condition 	anomalyDetected  
+	
+	  	action anomalyFound ; awaitingAdaptation = 	true  
+	
+	}
+
+	transition t6 {
+		from AnalysisComplete
+		to WaitForData
+		condition 	not anomalyDetected  
+	
+	}
+
+	 
+} 
+
+
+

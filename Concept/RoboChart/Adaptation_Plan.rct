@@ -1,0 +1,179 @@
+package Adaptation_Plan
+
+import Types::* 
+import sequence_toolkit::*
+
+
+
+
+
+stm Adaptation_Plan { 
+	
+	 event planningCompleted
+	 event planRejected
+	 event requestPlan
+	
+	uses Adaptation_PlanData_events
+	uses Adaptation_PlanData_set_events
+	uses Adaptation_RecordedData_events
+	uses Adaptation_VerificationInfo_events
+	uses Adaptation_AnalysisResults_events
+	uses Adaptation_RecordedData
+	uses Adaptation_AnalysisResults
+	
+	const NUM_MODELS : nat
+	const IDEAL_LIGHTING : nat -> real * real
+	const FALLBACK_MODEL : nat
+	var modelScore : Seq(nat)
+	var modelRanking : Seq(nat)
+	var model : nat
+	var image : nat
+	var pos : nat
+
+	initial i0
+
+	state Initialise { 
+	}
+
+	state WaitForSignal { 
+	}
+
+	state MakePlan {
+		// check the lighting levels of the identified problematic images
+		// against the ideal lighting conditions for each of the models
+		// score how well the lighting levels match the models
+		// pick the highest scoring model
+		
+		initial i0
+		
+		state CheckModel {}
+		
+		state CheckImage {}
+		
+		state RankModel {}
+		
+		final f0
+		
+		transition init {
+			from i0 to CheckModel
+			action get_imagesWithLight; imagesWithLight?imagesWithLight_var;
+			get_imagesWithPoorLight; imagesWithPoorLight?imagesWithPoorLight_var;
+			model = 1
+		}
+		
+		transition modelToCheck {
+			from CheckModel to CheckImage
+			condition model <= NUM_MODELS
+			action image = 1; modelScore = modelScore ^ <0>
+		}
+		
+		transition imageToCheck {
+			from CheckImage to CheckImage
+			condition image <= size(imagesWithPoorLight_var)
+			action modelScore[model] = modelScore[model] +
+				(let light == (imagesWithLight_var[imagesWithPoorLight_var[image]])[2] @
+					if light < (IDEAL_LIGHTING(model))[1]
+							\/ light > (IDEAL_LIGHTING(model))[2] then
+						0
+					else
+						1
+					end)
+		}
+		
+		transition allImagesChecked {
+			from CheckImage to RankModel
+			condition image > size(imagesWithPoorLight_var)
+			// start with it at the front
+			action modelRanking = <model> ^ modelRanking; pos = 1
+		}
+		
+		// rank models from highest score to lowest
+		transition modelNeedsMoving {
+			from RankModel to RankModel
+			condition pos < size(modelRanking)
+				/\ modelScore[model] <= modelScore[modelRanking[pos+1]]
+			action modelRanking[pos] = modelRanking[pos+1];
+				modelRanking[pos+1] = model;
+				pos = pos + 1
+		}
+		
+		transition modelRanked {
+			from RankModel to CheckModel
+			condition pos >= size(modelRanking)
+				\/ modelScore[model] > modelScore[modelRanking[pos+1]]
+			action model = model + 1
+		}
+		
+		transition allModelsChecked {
+			from CheckModel to f0
+			condition model > NUM_MODELS
+		}
+	}
+
+	state PlanMade {
+		entry set_newModel!head(modelRanking)
+	}
+
+	state WaitForVerification { 
+	}
+
+	state Replan {
+		// something about the images must not have worked well with the chosen model
+		// try the next-best model?
+		entry if size(modelRanking) > 0 then
+			modelRanking = tail(modelRanking)
+		else
+			// use a model that represents a known safe plan (outside of normal plans)
+			modelRanking = <FALLBACK_MODEL>
+		end
+	}
+
+	transition t0 {
+		from i0
+		to Initialise
+	}
+
+	transition t1 {
+		from Initialise
+		to WaitForSignal
+	}
+
+	transition t2 {
+		from WaitForSignal
+		to MakePlan
+		trigger requestPlan 
+	}
+
+	transition t3 {
+		from MakePlan
+		to PlanMade
+	}
+
+	transition t4 {
+		from PlanMade
+		to WaitForVerification
+	  	action planningCompleted 
+	}
+
+	transition t5 {
+		from WaitForVerification
+		to MakePlan
+		trigger requestPlan 
+	}
+
+	transition t6 {
+		from WaitForVerification
+		to Replan
+		trigger planRejected 
+	}
+
+	transition t7 {
+		from Replan
+		to PlanMade
+	}
+
+	 
+} 
+
+
+

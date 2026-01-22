@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="ASCII"?>
+<robochart:RCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart" name="Types">
+  <interfaces name="Movement">
+    <operations name="move">
+      <parameters name="position">
+        <type xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </type>
+      </parameters>
+      <parameters name="orientation">
+        <type xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </type>
+      </parameters>
+    </operations>
+  </interfaces>
+  <interfaces name="Gripper">
+    <operations name="grip"/>
+    <operations name="release"/>
+    <operations name="activateTool"/>
+    <operations name="deactivateTool"/>
+  </interfaces>
+  <interfaces name="Camera">
+    <events name="getImage">
+      <type xsi:type="robochart:TypeRef" ref="//@types.0"/>
+    </events>
+    <events name="lightLevel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="ArmSensors">
+    <events name="forceTorque">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </types>
+        <types xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </types>
+      </type>
+    </events>
+    <events name="positionOrientation">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </types>
+        <types xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+        </types>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_VerificationInfo_set_events">
+    <events name="set_newConfidences">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+        </domain>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_VerificationInfo_ext_events">
+    <events name="newConfidences_ext">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_newConfidences_ext"/>
+  </interfaces>
+  <interfaces name="Adaptation_PlanData_Legitimate_events">
+    <events name="newModel_Legitimate">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <events name="get_newModel_Legitimate"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData">
+    <variableList>
+      <vars name="imagesWithLight_var">
+        <type xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:ProductType">
+            <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+            <types xsi:type="robochart:TypeRef">
+              <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+            </types>
+            <types xsi:type="robochart:TypeRef">
+              <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+            </types>
+          </domain>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults_Plan_events">
+    <events name="imagesWithPoorLight_Plan">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithPoorLight_Plan"/>
+  </interfaces>
+  <interfaces name="Adaptation_VerificationInfo_events">
+    <events name="newConfidences">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_newConfidences"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_ext_events">
+    <events name="imagesWithLight_ext">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithLight_ext"/>
+  </interfaces>
+  <interfaces name="Adaptation_PlanData">
+    <variableList>
+      <vars name="newModel_var">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <interfaces name="Adaptation_PlanData_set_events">
+    <events name="set_newModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults_ext_events">
+    <events name="imagesWithPoorLight_ext">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithPoorLight_ext"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_Legitimate_events">
+    <events name="imagesWithLight_Legitimate">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithLight_Legitimate"/>
+  </interfaces>
+  <interfaces name="Adaptation_PlanData_Execute_events">
+    <events name="newModel_Execute">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <events name="get_newModel_Execute"/>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults">
+    <variableList>
+      <vars name="imagesWithPoorLight_var">
+        <type xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </domain>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <interfaces name="Adaptation_Inputs">
+    <events name="imageTaken">
+      <type xsi:type="robochart:TypeRef" ref="//@types.2"/>
+    </events>
+    <events name="ambientLight">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      </type>
+    </events>
+    <events name="currentModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults_set_events">
+    <events name="set_imagesWithPoorLight">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </domain>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_Analyse_events">
+    <events name="imagesWithLight_Analyse">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithLight_Analyse"/>
+  </interfaces>
+  <interfaces name="Adaptation_VerificationInfo_Plan_events">
+    <events name="newConfidences_Plan">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_newConfidences_Plan"/>
+  </interfaces>
+  <interfaces name="Adaptation_InputVars">
+    <variableList>
+      <vars name="imageTaken_data">
+        <type xsi:type="robochart:TypeRef" ref="//@types.2"/>
+      </vars>
+    </variableList>
+    <variableList>
+      <vars name="ambientLight_data">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </type>
+      </vars>
+    </variableList>
+    <variableList>
+      <vars name="currentModel_data">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults_events">
+    <events name="imagesWithPoorLight">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithPoorLight"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_set_events">
+    <events name="set_imagesWithLight">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_AnalysisResults_Legitimate_events">
+    <events name="imagesWithPoorLight_Legitimate">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithPoorLight_Legitimate"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_events">
+    <events name="imagesWithLight">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithLight"/>
+  </interfaces>
+  <interfaces name="IAdaptation"/>
+  <interfaces name="Adaptation_PlanData_events">
+    <events name="newModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <events name="get_newModel"/>
+  </interfaces>
+  <interfaces name="Adaptation_RecordedData_Plan_events">
+    <events name="imagesWithLight_Plan">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:ProductType">
+          <types xsi:type="robochart:TypeRef" ref="//@types.2"/>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+          </types>
+          <types xsi:type="robochart:TypeRef">
+            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+          </types>
+        </domain>
+      </type>
+    </events>
+    <events name="get_imagesWithLight_Plan"/>
+  </interfaces>
+  <interfaces name="Adaptation_PlanData_ext_events">
+    <events name="newModel_ext">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+    <events name="get_newModel_ext"/>
+  </interfaces>
+  <interfaces name="Adaptation_Outputs">
+    <events name="switchModel">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </events>
+  </interfaces>
+  <interfaces name="Adaptation_InputFlags">
+    <variableList>
+      <vars name="imageTaken_flag">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+        </type>
+      </vars>
+    </variableList>
+    <variableList>
+      <vars name="ambientLight_flag">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+        </type>
+      </vars>
+    </variableList>
+    <variableList>
+      <vars name="currentModel_flag">
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <interfaces name="Adaptation_VerificationInfo">
+    <variableList>
+      <vars name="newConfidences_var">
+        <type xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:SeqType">
+            <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+          </domain>
+        </type>
+      </vars>
+    </variableList>
+  </interfaces>
+  <types xsi:type="robochart:RecordType" name="ImageData">
+    <fields name="pixels">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:SeqType">
+          <domain xsi:type="robochart:ProductType">
+            <types xsi:type="robochart:TypeRef">
+              <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+            </types>
+            <types xsi:type="robochart:TypeRef">
+              <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+            </types>
+            <types xsi:type="robochart:TypeRef">
+              <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+            </types>
+          </domain>
+        </domain>
+      </type>
+    </fields>
+    <fields name="height">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </fields>
+    <fields name="width">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </type>
+    </fields>
+  </types>
+  <types xsi:type="robochart:RecordType" name="EstimatedPosition">
+    <fields name="topLeft">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </types>
+      </type>
+    </fields>
+    <fields name="bottomRight">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        </types>
+      </type>
+    </fields>
+    <fields name="confidence">
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      </type>
+    </fields>
+  </types>
+  <types xsi:type="robochart:RecordType" name="ScrewImageData">
+    <fields name="position">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+      </type>
+    </fields>
+    <fields name="orientation">
+      <type xsi:type="robochart:ProductType">
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+        <types xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+        </types>
+      </type>
+    </fields>
+    <fields name="image">
+      <type xsi:type="robochart:TypeRef" ref="//@types.0"/>
+    </fields>
+    <fields name="screwsDetected">
+      <type xsi:type="robochart:SeqType">
+        <domain xsi:type="robochart:TypeRef" ref="//@types.1"/>
+      </type>
+    </fields>
+  </types>
+</robochart:RCPackage>

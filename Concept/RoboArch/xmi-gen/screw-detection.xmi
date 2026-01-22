@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart">
+  <robochart:RCPackage name="ScrewDetection">
+    <imports importedNamespace="Screwdetection::*"/>
+    <imports importedNamespace="Adaptation::*"/>
+    <imports importedNamespace="Types::*"/>
+    <modules name="ScrewDetection">
+      <connections from="/0/@modules.0/@nodes.0" to="/0/@modules.0/@nodes.1" async="true">
+        <efrom href="Screwdetection.xmi#//@controllers.0/@events.1"/>
+        <eto href="Adaptation.xmi#//@controllers.0/@events.0"/>
+      </connections>
+      <connections from="/0/@modules.0/@nodes.0" to="/0/@modules.0/@nodes.1" async="true">
+        <efrom href="Screwdetection.xmi#//@controllers.0/@events.2"/>
+        <eto href="Adaptation.xmi#//@controllers.0/@events.1"/>
+      </connections>
+      <connections from="/0/@modules.0/@nodes.0" to="/0/@modules.0/@nodes.1" async="true">
+        <efrom href="Screwdetection.xmi#//@controllers.0/@events.3"/>
+        <eto href="Adaptation.xmi#//@controllers.0/@events.2"/>
+      </connections>
+      <connections from="/0/@modules.0/@nodes.1" to="/0/@modules.0/@nodes.0" async="true">
+        <efrom href="Adaptation.xmi#//@controllers.0/@events.3"/>
+        <eto href="Screwdetection.xmi#//@controllers.0/@events.0"/>
+      </connections>
+      <nodes xsi:type="robochart:ControllerRef" name="ctrl_ref0">
+        <ref href="Screwdetection.xmi#//@controllers.0"/>
+      </nodes>
+      <nodes xsi:type="robochart:ControllerRef" name="ctrl_ref1">
+        <ref href="Adaptation.xmi#//@controllers.0"/>
+      </nodes>
+      <nodes xsi:type="robochart:RoboticPlatformDef" name="UR5WithCamera">
+        <pInterfaces href="Types.xmi#//@interfaces.0"/>
+        <pInterfaces href="Types.xmi#//@interfaces.1"/>
+        <interfaces href="Types.xmi#//@interfaces.2"/>
+        <interfaces href="Types.xmi#//@interfaces.3"/>
+      </nodes>
+    </modules>
+  </robochart:RCPackage>
+  <robochart:SeqType>
+    <domain xsi:type="robochart:ProductType">
+      <types xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
+      </types>
+      <types xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      </types>
+      <types xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      </types>
+    </domain>
+  </robochart:SeqType>
+  <robochart:SeqType>
+    <domain xsi:type="robochart:TypeRef">
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+    </domain>
+  </robochart:SeqType>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+  </robochart:TypeRef>
+  <robochart:SeqType>
+    <domain xsi:type="robochart:SeqType">
+      <domain xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.1"/>
+      </domain>
+    </domain>
+  </robochart:SeqType>
+  <robochart:ProductType>
+    <types xsi:type="robochart:TypeRef">
+      <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
+    </types>
+    <types xsi:type="robochart:TypeRef">
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+    </types>
+    <types xsi:type="robochart:TypeRef">
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+    </types>
+  </robochart:ProductType>
+</xmi:XMI>

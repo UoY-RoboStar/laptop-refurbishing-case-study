@@ -1,0 +1,159 @@
+package Types interface Movement {
+	move ( position : real * real * real , orientation : real * real * real )
+}
+
+interface Gripper {
+	grip ( )
+	release ( )
+	activateTool ( )
+	deactivateTool ( )
+}
+
+interface Camera {
+	event getImage : ImageData
+	event lightLevel : real
+}
+
+interface ArmSensors {
+	event forceTorque : ( real * real * real ) * ( real * real * real )
+	event positionOrientation : ( real * real * real ) * ( real * real * real )
+}
+
+interface Adaptation_VerificationInfo_set_events {
+	event set_newConfidences : Seq( Seq( EstimatedPosition ) )
+}
+
+interface Adaptation_VerificationInfo_ext_events {
+	event newConfidences_ext : Seq( Seq( EstimatedPosition ) )
+	event get_newConfidences_ext
+}
+
+interface Adaptation_PlanData_Legitimate_events {
+	event newModel_Legitimate : nat
+	event get_newModel_Legitimate
+}
+
+interface Adaptation_RecordedData {
+	var imagesWithLight_var : Seq( ScrewImageData * real * nat )
+}
+
+interface Adaptation_AnalysisResults_Plan_events {
+	event imagesWithPoorLight_Plan : Seq( nat )
+	event get_imagesWithPoorLight_Plan
+}
+
+interface Adaptation_VerificationInfo_events {
+	event newConfidences : Seq( Seq( EstimatedPosition ) )
+	event get_newConfidences
+}
+
+interface Adaptation_RecordedData_ext_events {
+	event imagesWithLight_ext : Seq( ScrewImageData * real * nat )
+	event get_imagesWithLight_ext
+}
+
+interface Adaptation_PlanData {
+	var newModel_var : nat
+}
+
+interface Adaptation_PlanData_set_events {
+	event set_newModel : nat
+}
+
+interface Adaptation_AnalysisResults_ext_events {
+	event imagesWithPoorLight_ext : Seq( nat )
+	event get_imagesWithPoorLight_ext
+}
+
+interface Adaptation_RecordedData_Legitimate_events {
+	event imagesWithLight_Legitimate : Seq( ScrewImageData * real * nat )
+	event get_imagesWithLight_Legitimate
+}
+
+interface Adaptation_PlanData_Execute_events {
+	event newModel_Execute : nat
+	event get_newModel_Execute
+}
+
+interface Adaptation_AnalysisResults {
+	var imagesWithPoorLight_var : Seq( nat )
+}
+
+interface Adaptation_Inputs {
+	event imageTaken : ScrewImageData
+	event ambientLight : real
+	event currentModel : nat
+}
+
+interface Adaptation_AnalysisResults_set_events {
+	event set_imagesWithPoorLight : Seq( nat )
+}
+
+interface Adaptation_RecordedData_Analyse_events {
+	event imagesWithLight_Analyse : Seq( ScrewImageData * real * nat )
+	event get_imagesWithLight_Analyse
+}
+
+interface Adaptation_VerificationInfo_Plan_events {
+	event newConfidences_Plan : Seq( Seq( EstimatedPosition ) )
+	event get_newConfidences_Plan
+}
+
+interface Adaptation_InputVars {
+	var imageTaken_data : ScrewImageData
+	var ambientLight_data : real
+	var currentModel_data : nat
+}
+
+interface Adaptation_AnalysisResults_events {
+	event imagesWithPoorLight : Seq( nat )
+	event get_imagesWithPoorLight
+}
+
+interface Adaptation_RecordedData_set_events {
+	event set_imagesWithLight : Seq( ScrewImageData * real * nat )
+}
+
+interface Adaptation_AnalysisResults_Legitimate_events {
+	event imagesWithPoorLight_Legitimate : Seq( nat )
+	event get_imagesWithPoorLight_Legitimate
+}
+
+interface Adaptation_RecordedData_events {
+	event imagesWithLight : Seq( ScrewImageData * real * nat )
+	event get_imagesWithLight
+}
+
+interface IAdaptation {
+}
+
+interface Adaptation_PlanData_events {
+	event newModel : nat
+	event get_newModel
+}
+
+interface Adaptation_RecordedData_Plan_events {
+	event imagesWithLight_Plan : Seq( ScrewImageData * real * nat )
+	event get_imagesWithLight_Plan
+}
+
+interface Adaptation_PlanData_ext_events {
+	event newModel_ext : nat
+	event get_newModel_ext
+}
+
+interface Adaptation_Outputs {
+	event switchModel : nat
+}
+
+interface Adaptation_InputFlags {
+	var imageTaken_flag : boolean
+	var ambientLight_flag : boolean
+	var currentModel_flag : boolean
+}
+
+interface Adaptation_VerificationInfo {
+	var newConfidences_var : Seq( Seq( EstimatedPosition ) )
+}
+
+datatype ImageData { pixels : Seq( Seq( nat * nat * nat ) ) height : nat width : nat } datatype EstimatedPosition { topLeft : nat * nat bottomRight : nat * nat confidence : real } datatype ScrewImageData { position : real * real * real orientation : real * real * real image : ImageData screwsDetected : Seq( EstimatedPosition ) }

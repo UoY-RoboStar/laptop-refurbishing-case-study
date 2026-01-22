@@ -1,0 +1,35 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 11:18:34
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+-- data definitions used by platform:/resource/DTI-ScrewDetection-lighting-robochart/Types.rct
+nametype Types_ImageData = (LSeq(LSeq({(x0__,x1__,x2__) | x0__ <- core_nat,x1__ <- core_nat,x2__ <- core_nat},2),2),core_nat,core_nat)
+Types_ImageData_pixels((pixels,height,width)) = pixels
+update_Types_ImageData_pixels((pixels,height,width),v__) = (v__,height,width)
+Types_ImageData_height((pixels,height,width)) = height
+update_Types_ImageData_height((pixels,height,width),v__) = (pixels,v__,width)
+Types_ImageData_width((pixels,height,width)) = width
+update_Types_ImageData_width((pixels,height,width),v__) = (pixels,height,v__)
+nametype Types_EstimatedPosition = ({(x0__,x1__) | x0__ <- core_nat,x1__ <- core_nat},{(x0__,x1__) | x0__ <- core_nat,x1__ <- core_nat},core_real)
+Types_EstimatedPosition_topLeft((topLeft,bottomRight,confidence)) = topLeft
+update_Types_EstimatedPosition_topLeft((topLeft,bottomRight,confidence),v__) = (v__,bottomRight,confidence)
+Types_EstimatedPosition_bottomRight((topLeft,bottomRight,confidence)) = bottomRight
+update_Types_EstimatedPosition_bottomRight((topLeft,bottomRight,confidence),v__) = (topLeft,v__,confidence)
+Types_EstimatedPosition_confidence((topLeft,bottomRight,confidence)) = confidence
+update_Types_EstimatedPosition_confidence((topLeft,bottomRight,confidence),v__) = (topLeft,bottomRight,v__)
+nametype Types_ScrewImageData = ({(x0__,x1__,x2__) | x0__ <- core_real,x1__ <- core_real,x2__ <- core_real},{(x0__,x1__,x2__) | x0__ <- core_real,x1__ <- core_real,x2__ <- core_real},Types_ImageData,LSeq(Types_EstimatedPosition,2))
+Types_ScrewImageData_position((position,orientation,image,screwsDetected)) = position
+update_Types_ScrewImageData_position((position,orientation,image,screwsDetected),v__) = (v__,orientation,image,screwsDetected)
+Types_ScrewImageData_orientation((position,orientation,image,screwsDetected)) = orientation
+update_Types_ScrewImageData_orientation((position,orientation,image,screwsDetected),v__) = (position,v__,image,screwsDetected)
+Types_ScrewImageData_image((position,orientation,image,screwsDetected)) = image
+update_Types_ScrewImageData_image((position,orientation,image,screwsDetected),v__) = (position,orientation,v__,screwsDetected)
+Types_ScrewImageData_screwsDetected((position,orientation,image,screwsDetected)) = screwsDetected
+update_Types_ScrewImageData_screwsDetected((position,orientation,image,screwsDetected),v__) = (position,orientation,image,v__)
+
+	

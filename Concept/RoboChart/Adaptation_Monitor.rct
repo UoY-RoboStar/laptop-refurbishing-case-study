@@ -1,0 +1,121 @@
+package Adaptation_Monitor
+
+import Types::* 
+
+
+
+
+
+
+stm Adaptation_Monitor { 
+	
+	 event processedData : ScrewImageData * real * nat
+	
+	uses Adaptation_Inputs
+	uses Adaptation_InputVars
+	uses Adaptation_InputFlags
+	uses Adaptation_RecordedData_events
+	uses Adaptation_RecordedData_set_events
+	uses Adaptation_RecordedData
+	
+	
+	
+	var outputData : ScrewImageData * real * nat 
+	var dataToSend : boolean 
+
+	initial i0
+
+	 state Initialise { 
+	}
+
+	 state ReadInput { 
+	}
+
+	state ProcessData { 
+		entry dataToSend = currentModel_flag /\ imageTaken_flag /\ ambientLight_flag
+	}
+
+	state RecordData {
+		entry if dataToSend then
+			get_imagesWithLight;
+			imagesWithLight?imagesWithLight_var;
+			set_imagesWithLight!(imagesWithLight_var ^ <(| imageTaken_data, ambientLight_data, currentModel_data |)>)
+		end
+	}
+
+	junction j0
+
+	state SendData { 
+	}
+
+	transition t0 {
+		from i0
+		to Initialise
+	}
+
+	transition t1 {
+		from Initialise
+		to ReadInput
+	}
+
+	transition t2_imageTaken {
+		from ReadInput
+		to ProcessData
+		trigger imageTaken ? imageTaken_data 
+	  	action imageTaken_flag = 	true  
+	
+	}
+
+	transition t2_ambientLight {
+		from ReadInput
+		to ProcessData
+		trigger ambientLight ? ambientLight_data 
+	  	action ambientLight_flag = 	true  
+	
+	}
+
+	transition t2_currentModel {
+		from ReadInput
+		to ProcessData
+		trigger currentModel ? currentModel_data 
+	  	action currentModel_flag = 	true  
+	
+	}
+
+	transition t3 {
+		from ProcessData
+		to RecordData
+	}
+
+	transition t4 {
+		from RecordData
+		to j0
+	}
+
+	transition t5 {
+		from j0
+		to SendData
+		condition 	dataToSend  
+	
+	}
+
+	transition t6 {
+		from j0
+		to ReadInput
+		condition 	not dataToSend  
+	
+	}
+
+	transition t7 {
+		from SendData
+		to ReadInput
+	  	action processedData ! 	outputData  
+	 ; dataToSend = 	false  
+	
+	}
+
+	 
+} 
+
+
+

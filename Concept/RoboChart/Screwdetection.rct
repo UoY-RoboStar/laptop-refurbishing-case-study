@@ -1,0 +1,41 @@
+package Screwdetection
+
+import ScrewDetection::* 
+import Types::* 
+
+
+
+
+
+controller ScrewDetection {
+	
+	 event switchModel : nat
+	 event imageTaken : ScrewImageData
+	 event ambientLight : real
+	 event currentModel : nat
+	
+	uses ArmSensors
+	uses Camera
+	
+	
+	requires Movement
+
+	stm stm0 { 
+	
+		initial i0
+	
+		 state s0 { 
+		}
+	
+		transition i0Tos0 {
+			from i0
+			to s0
+		}
+	
+		 
+	} 
+
+} 
+
+
+

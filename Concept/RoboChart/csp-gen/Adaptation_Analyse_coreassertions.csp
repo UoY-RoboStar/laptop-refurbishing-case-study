@@ -1,0 +1,31 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Adaptation_Analyse.csp"
+
+-- generate Adaptation_Analyse_Adaptation_Analyse
+P_Adaptation_Analyse_Adaptation_Analyse = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation_Analyse::Adaptation_Analyse::O__(
+		id__,
+		const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD,
+		const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING,
+		const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+	)
+assert P_Adaptation_Analyse_Adaptation_Analyse :[deadlock-free]	
+assert P_Adaptation_Analyse_Adaptation_Analyse;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Analyse_Adaptation_Analyse :[deterministic]
+assert P_Adaptation_Analyse_Adaptation_Analyse :[divergence-free]
+
+
+

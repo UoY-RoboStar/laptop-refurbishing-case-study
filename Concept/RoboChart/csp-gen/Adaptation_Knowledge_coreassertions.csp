@@ -1,0 +1,28 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Adaptation_Knowledge.csp"
+
+-- generate Adaptation_Knowledge_Adaptation_Knowledge
+P_Adaptation_Knowledge_Adaptation_Knowledge = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation_Knowledge::Adaptation_Knowledge::O__(
+		id__
+	)
+assert P_Adaptation_Knowledge_Adaptation_Knowledge :[deadlock-free]	
+assert P_Adaptation_Knowledge_Adaptation_Knowledge;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Knowledge_Adaptation_Knowledge :[deterministic]
+assert P_Adaptation_Knowledge_Adaptation_Knowledge :[divergence-free]
+
+
+

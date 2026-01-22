@@ -1,0 +1,36 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Adaptation_Plan.csp"
+
+-- generate Adaptation_Plan_Adaptation_Plan
+P_Adaptation_Plan_Adaptation_Plan = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation_Plan::Adaptation_Plan::O__(
+		id__,
+		const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS,
+		const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING,
+		const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+	)
+assert P_Adaptation_Plan_Adaptation_Plan :[deadlock-free]	
+assert P_Adaptation_Plan_Adaptation_Plan;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Plan_Adaptation_Plan :[deterministic]
+assert P_Adaptation_Plan_Adaptation_Plan :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Plan_Adaptation_Plan[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Plan_Adaptation_Plan
+
+
+

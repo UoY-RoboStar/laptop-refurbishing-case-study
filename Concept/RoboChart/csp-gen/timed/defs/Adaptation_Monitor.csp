@@ -1,0 +1,1280 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:28
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+module Adaptation_Monitor
+exports
+
+
+
+module Adaptation_Monitor
+exports
+	transparent diamond
+	transparent sbisim
+	transparent dbisim
+	transparent chase
+
+	-- Transition identifiers
+	-- declaring identifiers of transitions
+	datatype NIDS = 
+	              NID_i0|
+	              NID_Initialise|
+	              NID_ReadInput|
+	              NID_ProcessData|
+	              NID_RecordData|
+	              NID_j0|
+	              NID_SendData
+	
+	channel internal__ : NIDS
+	
+	-- Flow channels		
+	channel interrupt
+	channel exited
+	channel exit
+	channel terminate
+	
+	-- Variable channels
+	channel get_outputData, set_outputData, setL_outputData, setR_outputData: {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}
+	channel get_dataToSend, set_dataToSend, setL_dataToSend, setR_dataToSend: core_boolean
+	channel get_imageTaken_data, set_imageTaken_data, setL_imageTaken_data, setR_imageTaken_data: Types_ScrewImageData
+	channel get_ambientLight_data, set_ambientLight_data, setL_ambientLight_data, setR_ambientLight_data: core_real
+	channel get_currentModel_data, set_currentModel_data, setL_currentModel_data, setR_currentModel_data: core_nat
+	channel get_imageTaken_flag, set_imageTaken_flag, setL_imageTaken_flag, setR_imageTaken_flag: core_boolean
+	channel get_ambientLight_flag, set_ambientLight_flag, setL_ambientLight_flag, setR_ambientLight_flag: core_boolean
+	channel get_currentModel_flag, set_currentModel_flag, setL_currentModel_flag, setR_currentModel_flag: core_boolean
+	channel get_imagesWithLight_var, set_imagesWithLight_var, setL_imagesWithLight_var, setR_imagesWithLight_var: LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)
+	
+	-- Shared variable channels
+	
+	-- Local variable channels for defined operations that are required by the state machine
+	
+	-- Declaring state machine events
+	channel processedData__: NIDS.InOut.{(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}
+	channel processedData: InOut.{(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}
+	channel imageTaken__: NIDS.InOut.Types_ScrewImageData
+	channel imageTaken: InOut.Types_ScrewImageData
+	channel ambientLight__: NIDS.InOut.core_real
+	channel ambientLight: InOut.core_real
+	channel currentModel__: NIDS.InOut.core_nat
+	channel currentModel: InOut.core_nat
+	channel imagesWithLight__: NIDS.InOut.LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)
+	channel imagesWithLight: InOut.LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)
+	channel get_imagesWithLight__: NIDS.InOut
+	channel get_imagesWithLight: InOut
+	channel set_imagesWithLight__: NIDS.InOut.LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)
+	channel set_imagesWithLight: InOut.LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)
+	
+	-- Declaring call and ret events for undefined operations
+	
+	enterSS = {|
+	i0::enter,
+	Initialise::enter,
+	ReadInput::enter,
+	ProcessData::enter,
+	RecordData::enter,
+	j0::enter,
+	SendData::enter
+	|}
+	
+	enteredSS = 	{|
+	Initialise::entered,
+	ReadInput::entered,
+	ProcessData::entered,
+	RecordData::entered,
+	SendData::entered
+	|}
+	
+	internal_events = union(enteredSS,union(enterSS,{|interrupt,exited|}))
+	
+	shared_variable_events = {|
+	|}
+	
+	-- channel set with all visible events
+	sem__events = {|
+		terminate
+	,	processedData,
+		imageTaken,
+		ambientLight,
+		currentModel,
+		imagesWithLight,
+		get_imagesWithLight,
+		set_imagesWithLight
+		|}
+	
+	channel clockReset, clockResetL, clockResetR 
+	
+	localClockResets = {||}
+	
+	
+	channel get_CLID_ReadInput : core_clock_type 
+	channel get_CLID_RecordData : core_clock_type 
+	channel get_CLID_SendData : core_clock_type 
+	channel get_CLID_Initialise : core_clock_type 
+	channel get_CLID_ProcessData : core_clock_type 
+	--channel increment__
+	
+	CLID_ReadInput_clock_type(id__) = 
+		let
+			max = (clock_type_max(Union({
+	{}
+	}))+1)
+		ctype = {0..max}
+	within
+		if member(max,core_clock_type) then ctype else error("core_clock_type is not wide enough")
+	
+	CLID_RecordData_clock_type(id__) = 
+		let
+			max = (clock_type_max(Union({
+	{}
+	}))+1)
+		ctype = {0..max}
+	within
+		if member(max,core_clock_type) then ctype else error("core_clock_type is not wide enough")
+	
+	CLID_SendData_clock_type(id__) = 
+		let
+			max = (clock_type_max(Union({
+	{}
+	}))+1)
+		ctype = {0..max}
+	within
+		if member(max,core_clock_type) then ctype else error("core_clock_type is not wide enough")
+	
+	CLID_Initialise_clock_type(id__) = 
+		let
+			max = (clock_type_max(Union({
+	{}
+	}))+1)
+		ctype = {0..max}
+	within
+		if member(max,core_clock_type) then ctype else error("core_clock_type is not wide enough")
+	
+	CLID_ProcessData_clock_type(id__) = 
+		let
+			max = (clock_type_max(Union({
+	{}
+	}))+1)
+		ctype = {0..max}
+	within
+		if member(max,core_clock_type) then ctype else error("core_clock_type is not wide enough")
+	
+	
+
+		-- Nodes --
+		-- declaring all nodes
+		
+		----------------------------------------------------------------------
+		-- Initial: i0
+		module i0
+		exports
+		
+			channel enter, interrupt
+			
+			Timed(OneStep) {
+				D__(id__) = 
+					dbisim(let
+						Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+						
+						Termination = terminate -> SKIP
+						
+						Active 		= share__choice(interrupt -> SKIP) ; Inactive
+					within
+						Inactive [| {terminate} |> SKIP)
+				
+				VS_O__(id__) = D__(id__)
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- State: Initialise
+		module Initialise
+		
+		enterSS = {}
+		
+		enteredSS = {}
+		
+		exports
+		
+			--  Declarations
+			
+			channel enter, entered, interrupt
+			channel enteredL, enteredR
+			
+							
+			
+			--channel increment__
+			
+			
+			--	Nodes
+			-- declaring all nodes
+			
+			
+			Timed(OneStep) {
+				--	Rule: behaviours(Node)
+				--  Note that FDR has problems with efficiently compiling the process below
+				-- 	if using a different recursion pattern.
+				D__(id__) = 
+				dbisim(let
+					-- IMPLEMENTATION NOTE: 
+					-- The following should be defined as: Inactive = share__choice(Activation [] Termination),
+					-- however FDR struggles with that form in certain cases. So we use the exception operator
+					-- instead to 'terminate'.
+					
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = 
+				dbisim(let
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+				
+				
+				-- Clocks
+				
+				StateClocks(id__) = terminate -> SKIP
+				
+				stateClockSync = {||}
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- State: ReadInput
+		module ReadInput
+		
+		enterSS = {}
+		
+		enteredSS = {}
+		
+		exports
+		
+			--  Declarations
+			
+			channel enter, entered, interrupt
+			channel enteredL, enteredR
+			
+							
+			
+			--channel increment__
+			
+			
+			--	Nodes
+			-- declaring all nodes
+			
+			
+			Timed(OneStep) {
+				--	Rule: behaviours(Node)
+				--  Note that FDR has problems with efficiently compiling the process below
+				-- 	if using a different recursion pattern.
+				D__(id__) = 
+				dbisim(let
+					-- IMPLEMENTATION NOTE: 
+					-- The following should be defined as: Inactive = share__choice(Activation [] Termination),
+					-- however FDR struggles with that form in certain cases. So we use the exception operator
+					-- instead to 'terminate'.
+					
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = 
+				dbisim(let
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+				
+				
+				-- Clocks
+				
+				StateClocks(id__) = terminate -> SKIP
+				
+				stateClockSync = {||}
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- State: ProcessData
+		module ProcessData
+		
+		enterSS = {}
+		
+		enteredSS = {}
+		
+		exports
+		
+			--  Declarations
+			
+			channel enter, entered, interrupt
+			channel enteredL, enteredR
+			
+							
+			
+			--channel increment__
+			
+			
+			--	Nodes
+			-- declaring all nodes
+			
+			
+			Timed(OneStep) {
+				--	Rule: behaviours(Node)
+				--  Note that FDR has problems with efficiently compiling the process below
+				-- 	if using a different recursion pattern.
+				D__(id__) = 
+				dbisim(let
+					-- IMPLEMENTATION NOTE: 
+					-- The following should be defined as: Inactive = share__choice(Activation [] Termination),
+					-- however FDR struggles with that form in certain cases. So we use the exception operator
+					-- instead to 'terminate'.
+					
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= share__choice(share__choice(get_ambientLight_flag?ambientLight_flag -> share__choice(get_currentModel_flag?currentModel_flag -> share__choice(get_imageTaken_flag?imageTaken_flag -> true & (share__choice(set_dataToSend!((currentModel_flag and imageTaken_flag) and ambientLight_flag) -> SKIP)))))) ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = 
+				dbisim(let
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= share__choice(share__choice(get_ambientLight_flag?ambientLight_flag -> share__choice(get_currentModel_flag?currentModel_flag -> share__choice(get_imageTaken_flag?imageTaken_flag -> true & (share__choice(set_dataToSend!((currentModel_flag and imageTaken_flag) and ambientLight_flag) -> SKIP)))))) ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+				
+				
+				-- Clocks
+				
+				StateClocks(id__) = terminate -> SKIP
+				
+				stateClockSync = {||}
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- State: RecordData
+		module RecordData
+		
+		enterSS = {}
+		
+		enteredSS = {}
+		
+		exports
+		
+			--  Declarations
+			
+			channel enter, entered, interrupt
+			channel enteredL, enteredR
+			
+							
+			
+			--channel increment__
+			
+			
+			--	Nodes
+			-- declaring all nodes
+			
+			
+			Timed(OneStep) {
+				--	Rule: behaviours(Node)
+				--  Note that FDR has problems with efficiently compiling the process below
+				-- 	if using a different recursion pattern.
+				D__(id__) = 
+				dbisim(let
+					-- IMPLEMENTATION NOTE: 
+					-- The following should be defined as: Inactive = share__choice(Activation [] Termination),
+					-- however FDR struggles with that form in certain cases. So we use the exception operator
+					-- instead to 'terminate'.
+					
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= share__choice(get_dataToSend?dataToSend -> true&(if dataToSend then (true&(share__choice(get_imagesWithLight.out -> SKIP));true&(share__choice(imagesWithLight.in?imagesWithLight_var -> (SStop /\ set_imagesWithLight_var!imagesWithLight_var -> SKIP)));share__choice(get_ambientLight_data?ambientLight_data -> share__choice(get_imagesWithLight_var?imagesWithLight_var -> share__choice(get_currentModel_data?currentModel_data -> share__choice(get_imageTaken_data?imageTaken_data -> true&(share__choice(set_imagesWithLight.out!((imagesWithLight_var ^ <(imageTaken_data,ambientLight_data,currentModel_data)>)) -> SKIP)))))))else SKIP)) ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = 
+				dbisim(let
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= share__choice(get_dataToSend?dataToSend -> true&(if dataToSend then (true&(share__choice(get_imagesWithLight.out -> SKIP));true&(share__choice(imagesWithLight.in?imagesWithLight_var -> (SStop /\ set_imagesWithLight_var!imagesWithLight_var -> SKIP)));share__choice(get_ambientLight_data?ambientLight_data -> share__choice(get_imagesWithLight_var?imagesWithLight_var -> share__choice(get_currentModel_data?currentModel_data -> share__choice(get_imageTaken_data?imageTaken_data -> true&(share__choice(set_imagesWithLight.out!((imagesWithLight_var ^ <(imageTaken_data,ambientLight_data,currentModel_data)>)) -> SKIP)))))))else SKIP)) ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+				
+				
+				-- Clocks
+				
+				StateClocks(id__) = terminate -> SKIP
+				
+				stateClockSync = {||}
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- Junction: j0
+		module j0
+		exports
+		
+			channel enter, interrupt
+			
+			Timed(OneStep) {
+				D__(id__) = 
+					dbisim(let
+						Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+						
+						Active 		= share__choice(interrupt -> SKIP) ; Inactive
+					within
+						Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = D__(id__)
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		
+		----------------------------------------------------------------------
+		-- State: SendData
+		module SendData
+		
+		enterSS = {}
+		
+		enteredSS = {}
+		
+		exports
+		
+			--  Declarations
+			
+			channel enter, entered, interrupt
+			channel enteredL, enteredR
+			
+							
+			
+			--channel increment__
+			
+			
+			--	Nodes
+			-- declaring all nodes
+			
+			
+			Timed(OneStep) {
+				--	Rule: behaviours(Node)
+				--  Note that FDR has problems with efficiently compiling the process below
+				-- 	if using a different recursion pattern.
+				D__(id__) = 
+				dbisim(let
+					-- IMPLEMENTATION NOTE: 
+					-- The following should be defined as: Inactive = share__choice(Activation [] Termination),
+					-- however FDR struggles with that form in certain cases. So we use the exception operator
+					-- instead to 'terminate'.
+					
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+					
+				VS_O__(id__) = 
+				dbisim(let
+					Inactive 	= share__choice(enter -> SKIP [] terminate -> SKIP) ; Active
+					
+					Termination = terminate -> SKIP
+					
+					Active 		= SKIP ; 
+							 	  Behaviour ; 
+							 	  share__choice(exit -> SKIP) ; SKIP ; 
+							 	  share__choice(exited -> SKIP) ; Inactive
+				
+					Behaviour 	= entered -> During
+					During 		= ((SKIP ; SStop) /\ interrupt -> SKIP)
+				within
+					Inactive [| {terminate} |> SKIP)
+				
+				
+				-- Clocks
+				
+				StateClocks(id__) = terminate -> SKIP
+				
+				stateClockSync = {||}
+			}
+		
+		endmodule
+		----------------------------------------------------------------------
+		
+		-- END of Nodes --
+		
+		Timed(OneStep) {
+		-- Operation calls --
+		-- Only the undefined operations are declared here.
+		-- If the state machine is in isolation, all required operations will be undefined.
+		-- If it is in the context of a controller, the required operations not provided by the
+		-- controller will be declared here, and the defined operations will be defined in the
+		-- context of the Controller module, and therefore within scope of the state machine module.
+		
+		-- END of Operation calls --
+	
+		-- STM processes
+		STM(id__) = -- RULE: [[stm:StateMachineDef]]_STM^nops : CSPProcess
+		( 
+			(
+				(
+					(IteratedStateful(id__) \ {terminate} ; share__choice(terminate -> SKIP))
+				 	[[ share__ <- x__ | x__ <- {||} ]]
+				)
+			[| {share__} |]
+			SKIP
+			)
+			[| union(sharedVarSync,{terminate}) |]
+			dbisim(sharedVarMemory(id__))
+		)\sharedVarHide
+		
+		STM_VS_O(id__) = -- RULE: [[stm:StateMachineDef]]_STM^nops : CSPProcess
+		( 
+			(
+				(
+					(IteratedStateful_VS_O(id__) \ {terminate} ; share__choice(terminate -> SKIP))
+				 	[[ share__ <- x__ | x__ <- {||} ]]
+				)
+			[| {share__} |]
+			SKIP
+			)
+			[| union(sharedVarSync,{terminate}) |]
+			dbisim(sharedVarMemory(id__))
+		)\sharedVarHide
+		
+		-- Transitions
+		Transitions(id__) = ((let
+			Trans = share__choice(get_dataToSend?dataToSend -> TimeOut_1(
+				 (share__ -> SKIP
+				 [] dbisim((true)&(internal__!NID_i0 -> SKIP ;  ((SKIP ; Initialise::enter -> SKIP))))
+				 [] dbisim((true)&(internal__!NID_Initialise -> SKIP ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; SKIP ; ReadInput::enter -> SKIP)))
+				 [] dbisim((true)&(imageTaken__!NID_ReadInput.in?imageTaken_data:{imageTaken_data|imageTaken_data <- Types_ScrewImageData, true} -> share__choice(set_imageTaken_data!imageTaken_data -> SKIP) ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; share__choice(true & (share__choice(set_imageTaken_flag!true -> SKIP))) ; ProcessData::enter -> SKIP)))
+				 [] dbisim((true)&(ambientLight__!NID_ReadInput.in?ambientLight_data:{ambientLight_data|ambientLight_data <- core_real, true} -> share__choice(set_ambientLight_data!ambientLight_data -> SKIP) ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; share__choice(true & (share__choice(set_ambientLight_flag!true -> SKIP))) ; ProcessData::enter -> SKIP)))
+				 [] dbisim((true)&(currentModel__!NID_ReadInput.in?currentModel_data:{currentModel_data|currentModel_data <- core_nat, true} -> share__choice(set_currentModel_data!currentModel_data -> SKIP) ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; share__choice(true & (share__choice(set_currentModel_flag!true -> SKIP))) ; ProcessData::enter -> SKIP)))
+				 [] dbisim((true)&(internal__!NID_ProcessData -> SKIP ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; SKIP ; RecordData::enter -> SKIP)))
+				 [] dbisim((true)&(internal__!NID_RecordData -> SKIP ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; SKIP ; j0::enter -> SKIP)))
+				 [] dbisim((dataToSend)&(internal__!NID_j0 -> SKIP ;  ((SKIP ; SendData::enter -> SKIP))))
+				 [] dbisim(((not (dataToSend)))&(internal__!NID_j0 -> SKIP ;  ((SKIP ; ReadInput::enter -> SKIP))))
+				 [] dbisim((true)&(internal__!NID_SendData -> SKIP ;  share__choice(exit -> SKIP) ; (share__choice(exited -> SKIP) ; share__choice(get_outputData?outputData -> true&(share__choice(processedData.out!outputData -> SKIP)));share__choice(true & (share__choice(set_dataToSend!false -> SKIP))) ; ReadInput::enter -> SKIP)))
+				 []
+				 (interrupt -> share__choice(exit -> SKIP) ; share__choice(exited -> terminate -> SKIP))
+				 []
+				 terminate -> SKIP
+				 )
+			,SKIP);Trans
+			)
+		within
+			Trans [|{terminate}|> SKIP
+		)
+		)
+		
+		-- Stateful
+		-- RULE: Stateful(stm:StateMachineBody) : CSPProcess
+		
+		-- Named process definitions
+		MachineBody(id__) = 
+			dbisim((
+			let
+				finalNodesEntered = {||}
+			within
+				(dbisim((dbisim((let
+					-- IMPLEMENTATION NOTE:
+					-- Here the 'enter' channel set is calculated explicitly because of the use of CSPM 
+					-- modules for defining the semantics of each node.
+					enterSS = {|
+					i0::enter,
+					Initialise::enter,
+					ReadInput::enter,
+					ProcessData::enter,
+					RecordData::enter,
+					j0::enter,
+					SendData::enter
+					|}
+					hideSet = union(enterSS,{|exit,exited,internal__|})
+				within 
+					((let
+						-- IMPLEMENTATION NOTE: the channel set 'enter' is calculated explicitly
+						-- because CSPM modules are used for the semantics of Node.
+						flowevts = union(enterSS,{|exit,exited,interrupt|})
+						transSync = {|internal__.NID_i0,internal__.NID_Initialise,imageTaken__.NID_ReadInput.in,ambientLight__.NID_ReadInput.in,currentModel__.NID_ReadInput.in,internal__.NID_ProcessData,internal__.NID_RecordData,internal__.NID_j0,internal__.NID_j0,internal__.NID_SendData|}
+					within
+						((
+						 (((-- RULE composeNodes(nc:NodeContainer)^nops : CSPProcess
+						   i0::D__(id__)
+						   [| { share__, terminate } |] (
+						   Initialise::D__(id__)
+						   [| { share__, terminate } |] (
+						   ReadInput::D__(id__)
+						   [| { share__, terminate } |] (
+						   ProcessData::D__(id__)
+						   [| { share__, terminate } |] (
+						   RecordData::D__(id__)
+						   [| { share__, terminate } |] (
+						   j0::D__(id__)
+						   [| { share__, terminate } |] (
+						   SendData::D__(id__)
+						   )
+						   )
+						   )
+						   )
+						   )
+						   )
+						 )
+						 [[Initialise::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_Initialise|}]]
+						 [[ReadInput::interrupt <- x__ | x__ <- {|interrupt,imageTaken__.NID_ReadInput.in,ambientLight__.NID_ReadInput.in,currentModel__.NID_ReadInput.in|}]]
+						 [[ProcessData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_ProcessData|}]]
+						 [[RecordData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_RecordData|}]]
+						 [[SendData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_SendData|}]]
+						 [[i0::interrupt <- x__ | x__ <- {|internal__.NID_i0|}]]
+						 [[j0::interrupt <- x__ | x__ <- {|internal__.NID_j0,internal__.NID_j0|}]]
+						 )
+						  [[ share__ <- x__ | x__ <- {| share__,setR_ambientLight_data,setR_currentModel_data,setR_imageTaken_data |} ]] 
+						  [[set_dataToSend <- setL_dataToSend]]
+						 )
+						 [| union(union(union(flowevts,transSync),{terminate}),{|share__
+						 			,setL_dataToSend
+						 			,setR_ambientLight_data
+						 			 			,setR_currentModel_data
+						 			 			,setR_imageTaken_data
+						 			|}) |]
+						 ((i0::enter -> Transitions(id__))
+						  [[ share__ <- x__ | x__ <- {| share__,setL_dataToSend |} ]]
+						  [[set_ambientLight_data <- setR_ambientLight_data,set_currentModel_data <- setR_currentModel_data,set_imageTaken_data <- setR_imageTaken_data]]
+						 )
+						)[[setL_dataToSend <- set_dataToSend]]
+						 [[setR_ambientLight_data <- set_ambientLight_data,setR_currentModel_data <- set_currentModel_data,setR_imageTaken_data <- set_imageTaken_data]]
+						)
+					)
+					 \ hideSet)
+					[[
+						processedData__.x____ <- processedData,
+						imageTaken__.x____ <- imageTaken,
+						ambientLight__.x____ <- ambientLight,
+						currentModel__.x____ <- currentModel,
+						imagesWithLight__.x____ <- imagesWithLight,
+						get_imagesWithLight__.x____ <- get_imagesWithLight,
+						set_imagesWithLight__.x____ <- set_imagesWithLight
+						| x____ <- NIDS
+					]]
+				)
+				)
+				 [| union(stateClockSync,{terminate}) |]
+				 StateClocks(id__)
+				)\diff(stateClockSync,enteredSS))
+				 [| {| interrupt |} |] SKIP)
+			)
+			)
+		
+		Behaviour(id__) = 
+			dbisim((let
+				stateClockSync = {|get_CLID_ReadInput,ReadInput::entered,get_CLID_RecordData,RecordData::entered,get_CLID_SendData,SendData::entered,get_CLID_Initialise,Initialise::entered,get_CLID_ProcessData,ProcessData::entered|}
+			 within
+				(MachineBody(id__) [| union(stateClockSync,{terminate}) |] StateClocks(id__)) \ union(stateClockSync,enteredSS)
+			)
+			)
+		
+		IteratedBehaviour(id__) = 
+			dbisim((let
+				stateClockSync = {|get_CLID_ReadInput,ReadInput::entered,get_CLID_RecordData,RecordData::entered,get_CLID_SendData,SendData::entered,get_CLID_Initialise,Initialise::entered,get_CLID_ProcessData,ProcessData::entered|}
+			 within
+				(dbisim(
+					sbisim(
+						dbisim(
+							sbisim(
+								dbisim(
+									sbisim(
+										dbisim(
+											sbisim(
+												dbisim(
+													sbisim(
+														MachineBody(id__)
+														[| {|get_CLID_ProcessData,ProcessData::entered,terminate|} |]
+														dbisim(Clock_CLID_ProcessData(id__,0))
+													)\{|get_CLID_ProcessData|}
+												)
+												[| {|get_CLID_Initialise,Initialise::entered,terminate|} |]
+												dbisim(Clock_CLID_Initialise(id__,0))
+											)\{|get_CLID_Initialise|}
+										)
+										[| {|get_CLID_SendData,SendData::entered,terminate|} |]
+										dbisim(Clock_CLID_SendData(id__,0))
+									)\{|get_CLID_SendData|}
+								)
+								[| {|get_CLID_RecordData,RecordData::entered,terminate|} |]
+								dbisim(Clock_CLID_RecordData(id__,0))
+							)\{|get_CLID_RecordData|}
+						)
+						[| {|get_CLID_ReadInput,ReadInput::entered,terminate|} |]
+						dbisim(Clock_CLID_ReadInput(id__,0))
+					)\{|get_CLID_ReadInput|}
+				)
+				) \ union(stateClockSync,enteredSS)
+			)
+			)
+		
+		Stateful(id__) = 
+			((let
+				getsetLocalChannels = {|get_outputData,set_outputData,
+				get_dataToSend,set_dataToSend,
+				get_imageTaken_data,set_imageTaken_data,
+				get_ambientLight_data,set_ambientLight_data,
+				get_currentModel_data,set_currentModel_data,
+				get_imageTaken_flag,set_imageTaken_flag,
+				get_ambientLight_flag,set_ambientLight_flag,
+				get_currentModel_flag,set_currentModel_flag,
+				get_imagesWithLight_var,set_imagesWithLight_var|}
+				clockSync = {||}
+			within
+				(Behaviour(id__) 
+				 [| union(union(getsetLocalChannels,clockSync),{terminate}) |] 
+				 (varMemory(id__) [| {terminate} |] Clocks(id__))
+			 	)\union(getsetLocalChannels,clockSync)
+			)
+			)
+		
+		IteratedStateful(id__) =
+			(dbisim(
+				sbisim(
+					dbisim(
+						sbisim(
+							dbisim(
+								sbisim(
+									dbisim(
+										sbisim(
+											dbisim(
+												sbisim(
+													dbisim(
+														sbisim(
+															dbisim(
+																sbisim(
+																	dbisim(
+																		sbisim(
+																			dbisim(
+																				sbisim(
+																					IteratedBehaviour(id__)
+																					[| {|get_imagesWithLight_var,set_imagesWithLight_var,terminate|} |]
+																					Memory_imagesWithLight_var(<>)
+																				)\{|get_imagesWithLight_var,set_imagesWithLight_var|}
+																			)
+																			[| {|get_currentModel_flag,set_currentModel_flag,terminate|} |]
+																			Memory_currentModel_flag(true)
+																		)\{|get_currentModel_flag,set_currentModel_flag|}
+																	)
+																	[| {|get_ambientLight_flag,set_ambientLight_flag,terminate|} |]
+																	Memory_ambientLight_flag(true)
+																)\{|get_ambientLight_flag,set_ambientLight_flag|}
+															)
+															[| {|get_imageTaken_flag,set_imageTaken_flag,terminate|} |]
+															Memory_imageTaken_flag(true)
+														)\{|get_imageTaken_flag,set_imageTaken_flag|}
+													)
+													[| {|get_currentModel_data,set_currentModel_data,terminate|} |]
+													Memory_currentModel_data(0)
+												)\{|get_currentModel_data,set_currentModel_data|}
+											)
+											[| {|get_ambientLight_data,set_ambientLight_data,terminate|} |]
+											Memory_ambientLight_data(0)
+										)\{|get_ambientLight_data,set_ambientLight_data|}
+									)
+									[| {|get_imageTaken_data,set_imageTaken_data,terminate|} |]
+									Memory_imageTaken_data(((0,0,0),(0,0,0),(<>,0,0),<>))
+								)\{|get_imageTaken_data,set_imageTaken_data|}
+							)
+							[| {|get_dataToSend,set_dataToSend,terminate|} |]
+							Memory_dataToSend(true)
+						)\{|get_dataToSend,set_dataToSend|}
+					)
+					[| {|get_outputData,set_outputData,terminate|} |]
+					Memory_outputData((((0,0,0),(0,0,0),(<>,0,0),<>),0,0))
+				)\{|get_outputData,set_outputData|}
+			)
+			)
+		
+		-- Visible counterparts
+		MachineBody_VS_O(id__) = 
+			dbisim((
+			let
+				finalNodesEntered = {||}
+			within
+				(dbisim((dbisim((let
+					-- IMPLEMENTATION NOTE:
+					-- Here the 'enter' channel set is calculated explicitly because of the use of CSPM 
+					-- modules for defining the semantics of each node.
+					enterSS = {|
+					i0::enter,
+					Initialise::enter,
+					ReadInput::enter,
+					ProcessData::enter,
+					RecordData::enter,
+					j0::enter,
+					SendData::enter
+					|}
+					hideSet = union(enterSS,{|exit,exited,internal__|})
+				within 
+					((let
+						-- IMPLEMENTATION NOTE: the channel set 'enter' is calculated explicitly
+						-- because CSPM modules are used for the semantics of Node.
+						flowevts = union(enterSS,{|exit,exited,interrupt|})
+						transSync = {|internal__.NID_i0,internal__.NID_Initialise,imageTaken__.NID_ReadInput.in,ambientLight__.NID_ReadInput.in,currentModel__.NID_ReadInput.in,internal__.NID_ProcessData,internal__.NID_RecordData,internal__.NID_j0,internal__.NID_j0,internal__.NID_SendData|}
+					within
+						((
+						 (((-- RULE composeNodes(nc:NodeContainer)^nops : CSPProcess
+						   i0::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   Initialise::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   ReadInput::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   ProcessData::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   RecordData::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   j0::VS_O__(id__)
+						   [| { share__, terminate } |] (
+						   SendData::VS_O__(id__)
+						   )
+						   )
+						   )
+						   )
+						   )
+						   )
+						 )
+						 [[Initialise::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_Initialise|}]]
+						 [[ReadInput::interrupt <- x__ | x__ <- {|interrupt,imageTaken__.NID_ReadInput.in,ambientLight__.NID_ReadInput.in,currentModel__.NID_ReadInput.in|}]]
+						 [[ProcessData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_ProcessData|}]]
+						 [[RecordData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_RecordData|}]]
+						 [[SendData::interrupt <- x__ | x__ <- {|interrupt,internal__.NID_SendData|}]]
+						 [[i0::interrupt <- x__ | x__ <- {|internal__.NID_i0|}]]
+						 [[j0::interrupt <- x__ | x__ <- {|internal__.NID_j0,internal__.NID_j0|}]]
+						 )
+						  [[ share__ <- x__ | x__ <- {| share__,setR_ambientLight_data,setR_currentModel_data,setR_imageTaken_data |} ]] 
+						  [[set_dataToSend <- setL_dataToSend]]
+						 )
+						 [| union(union(union(flowevts,transSync),{terminate}),{|share__
+						 			,setL_dataToSend
+						 			,setR_ambientLight_data
+						 			 			,setR_currentModel_data
+						 			 			,setR_imageTaken_data
+						 			|}) |]
+						 ((i0::enter -> Transitions(id__))
+						  [[ share__ <- x__ | x__ <- {| share__,setL_dataToSend |} ]]
+						  [[set_ambientLight_data <- setR_ambientLight_data,set_currentModel_data <- setR_currentModel_data,set_imageTaken_data <- setR_imageTaken_data]]
+						 )
+						)[[setL_dataToSend <- set_dataToSend]]
+						 [[setR_ambientLight_data <- set_ambientLight_data,setR_currentModel_data <- set_currentModel_data,setR_imageTaken_data <- set_imageTaken_data]]
+						)
+					)
+					 \ hideSet)
+					[[
+						processedData__.x____ <- processedData,
+						imageTaken__.x____ <- imageTaken,
+						ambientLight__.x____ <- ambientLight,
+						currentModel__.x____ <- currentModel,
+						imagesWithLight__.x____ <- imagesWithLight,
+						get_imagesWithLight__.x____ <- get_imagesWithLight,
+						set_imagesWithLight__.x____ <- set_imagesWithLight
+						| x____ <- NIDS
+					]]
+				)
+				)
+				 [| union(stateClockSync,{terminate}) |]
+				 StateClocks(id__)
+				)\diff(stateClockSync,enteredSS))
+				 [| {| interrupt |} |] SKIP)
+			)
+			)
+		
+		Behaviour_VS_O(id__) = 
+			dbisim((let
+				stateClockSync = {|get_CLID_ReadInput,ReadInput::entered,get_CLID_RecordData,RecordData::entered,get_CLID_SendData,SendData::entered,get_CLID_Initialise,Initialise::entered,get_CLID_ProcessData,ProcessData::entered|}
+			 within
+				(MachineBody_VS_O(id__) [| union(stateClockSync,{terminate}) |] StateClocks(id__)) \ diff(union(stateClockSync,enteredSS),enteredSS)
+			)
+			)
+		
+		IteratedBehaviour_VS_O(id__) = 
+			dbisim((let
+				stateClockSync = {|get_CLID_ReadInput,ReadInput::entered,get_CLID_RecordData,RecordData::entered,get_CLID_SendData,SendData::entered,get_CLID_Initialise,Initialise::entered,get_CLID_ProcessData,ProcessData::entered|}
+			 within
+				(dbisim(
+					sbisim(
+						dbisim(
+							sbisim(
+								dbisim(
+									sbisim(
+										dbisim(
+											sbisim(
+												dbisim(
+													sbisim(
+														MachineBody_VS_O(id__)
+														[| {|get_CLID_ProcessData,ProcessData::entered,terminate|} |]
+														dbisim(Clock_CLID_ProcessData(id__,0))
+													)\{|get_CLID_ProcessData|}
+												)
+												[| {|get_CLID_Initialise,Initialise::entered,terminate|} |]
+												dbisim(Clock_CLID_Initialise(id__,0))
+											)\{|get_CLID_Initialise|}
+										)
+										[| {|get_CLID_SendData,SendData::entered,terminate|} |]
+										dbisim(Clock_CLID_SendData(id__,0))
+									)\{|get_CLID_SendData|}
+								)
+								[| {|get_CLID_RecordData,RecordData::entered,terminate|} |]
+								dbisim(Clock_CLID_RecordData(id__,0))
+							)\{|get_CLID_RecordData|}
+						)
+						[| {|get_CLID_ReadInput,ReadInput::entered,terminate|} |]
+						dbisim(Clock_CLID_ReadInput(id__,0))
+					)\{|get_CLID_ReadInput|}
+				)
+				) \ diff(union(stateClockSync,enteredSS),enteredSS)
+			)
+			)
+		
+		Stateful_VS_O(id__) = 
+			dbisim((let
+				getsetLocalChannels = {|get_outputData,set_outputData,
+				get_dataToSend,set_dataToSend,
+				get_imageTaken_data,set_imageTaken_data,
+				get_ambientLight_data,set_ambientLight_data,
+				get_currentModel_data,set_currentModel_data,
+				get_imageTaken_flag,set_imageTaken_flag,
+				get_ambientLight_flag,set_ambientLight_flag,
+				get_currentModel_flag,set_currentModel_flag,
+				get_imagesWithLight_var,set_imagesWithLight_var|}
+				clockSync = {||}
+			within
+				(Behaviour_VS_O(id__) 
+				 [| union(union(getsetLocalChannels,clockSync),{terminate}) |] 
+				 (varMemory(id__) [| {terminate} |] Clocks(id__))
+			 	)\union(getsetLocalChannels,clockSync)
+			)
+			)
+		
+		IteratedStateful_VS_O(id__) =
+			(dbisim(
+				sbisim(
+					dbisim(
+						sbisim(
+							dbisim(
+								sbisim(
+									dbisim(
+										sbisim(
+											dbisim(
+												sbisim(
+													dbisim(
+														sbisim(
+															dbisim(
+																sbisim(
+																	dbisim(
+																		sbisim(
+																			dbisim(
+																				sbisim(
+																					IteratedBehaviour_VS_O(id__)
+																					[| {|get_imagesWithLight_var,set_imagesWithLight_var,terminate|} |]
+																					Memory_imagesWithLight_var(<>)
+																				)\{|get_imagesWithLight_var,set_imagesWithLight_var|}
+																			)
+																			[| {|get_currentModel_flag,set_currentModel_flag,terminate|} |]
+																			Memory_currentModel_flag(true)
+																		)\{|get_currentModel_flag,set_currentModel_flag|}
+																	)
+																	[| {|get_ambientLight_flag,set_ambientLight_flag,terminate|} |]
+																	Memory_ambientLight_flag(true)
+																)\{|get_ambientLight_flag,set_ambientLight_flag|}
+															)
+															[| {|get_imageTaken_flag,set_imageTaken_flag,terminate|} |]
+															Memory_imageTaken_flag(true)
+														)\{|get_imageTaken_flag,set_imageTaken_flag|}
+													)
+													[| {|get_currentModel_data,set_currentModel_data,terminate|} |]
+													Memory_currentModel_data(0)
+												)\{|get_currentModel_data,set_currentModel_data|}
+											)
+											[| {|get_ambientLight_data,set_ambientLight_data,terminate|} |]
+											Memory_ambientLight_data(0)
+										)\{|get_ambientLight_data,set_ambientLight_data|}
+									)
+									[| {|get_imageTaken_data,set_imageTaken_data,terminate|} |]
+									Memory_imageTaken_data(((0,0,0),(0,0,0),(<>,0,0),<>))
+								)\{|get_imageTaken_data,set_imageTaken_data|}
+							)
+							[| {|get_dataToSend,set_dataToSend,terminate|} |]
+							Memory_dataToSend(true)
+						)\{|get_dataToSend,set_dataToSend|}
+					)
+					[| {|get_outputData,set_outputData,terminate|} |]
+					Memory_outputData((((0,0,0),(0,0,0),(<>,0,0),<>),0,0))
+				)\{|get_outputData,set_outputData|}
+			)
+			)
+		
+		-- END
+		
+		-- Memory
+		-- Memory variables
+		Memory_outputData(outputData) =
+			get_outputData!outputData -> Memory_outputData(outputData)
+			[]
+			set_outputData?x__ -> Memory_outputData(x__)
+			[]
+			terminate -> SKIP
+		Memory_dataToSend(dataToSend) =
+			get_dataToSend!dataToSend -> Memory_dataToSend(dataToSend)
+			[]
+			set_dataToSend?x__ -> Memory_dataToSend(x__)
+			[]
+			terminate -> SKIP
+		Memory_imageTaken_data(imageTaken_data) =
+			get_imageTaken_data!imageTaken_data -> Memory_imageTaken_data(imageTaken_data)
+			[]
+			set_imageTaken_data?x__ -> Memory_imageTaken_data(x__)
+			[]
+			terminate -> SKIP
+		Memory_ambientLight_data(ambientLight_data) =
+			get_ambientLight_data!ambientLight_data -> Memory_ambientLight_data(ambientLight_data)
+			[]
+			set_ambientLight_data?x__ -> Memory_ambientLight_data(x__)
+			[]
+			terminate -> SKIP
+		Memory_currentModel_data(currentModel_data) =
+			get_currentModel_data!currentModel_data -> Memory_currentModel_data(currentModel_data)
+			[]
+			set_currentModel_data?x__ -> Memory_currentModel_data(x__)
+			[]
+			terminate -> SKIP
+		Memory_imageTaken_flag(imageTaken_flag) =
+			get_imageTaken_flag!imageTaken_flag -> Memory_imageTaken_flag(imageTaken_flag)
+			[]
+			set_imageTaken_flag?x__ -> Memory_imageTaken_flag(x__)
+			[]
+			terminate -> SKIP
+		Memory_ambientLight_flag(ambientLight_flag) =
+			get_ambientLight_flag!ambientLight_flag -> Memory_ambientLight_flag(ambientLight_flag)
+			[]
+			set_ambientLight_flag?x__ -> Memory_ambientLight_flag(x__)
+			[]
+			terminate -> SKIP
+		Memory_currentModel_flag(currentModel_flag) =
+			get_currentModel_flag!currentModel_flag -> Memory_currentModel_flag(currentModel_flag)
+			[]
+			set_currentModel_flag?x__ -> Memory_currentModel_flag(x__)
+			[]
+			terminate -> SKIP
+		Memory_imagesWithLight_var(imagesWithLight_var) =
+			get_imagesWithLight_var!imagesWithLight_var -> Memory_imagesWithLight_var(imagesWithLight_var)
+			[]
+			set_imagesWithLight_var?x__ -> Memory_imagesWithLight_var(x__)
+			[]
+			terminate -> SKIP
+		
+		-- varMemory process
+		varMemory(id__) = Memory_outputData((((0,0,0),(0,0,0),(<>,0,0),<>),0,0))
+		[| { terminate } |] (
+		Memory_dataToSend(true)
+		[| { terminate } |] (
+		Memory_imageTaken_data(((0,0,0),(0,0,0),(<>,0,0),<>))
+		[| { terminate } |] (
+		Memory_ambientLight_data(0)
+		[| { terminate } |] (
+		Memory_currentModel_data(0)
+		[| { terminate } |] (
+		Memory_imageTaken_flag(true)
+		[| { terminate } |] (
+		Memory_ambientLight_flag(true)
+		[| { terminate } |] (
+		Memory_currentModel_flag(true)
+		[| { terminate } |] (
+		Memory_imagesWithLight_var(<>)
+		)
+		)
+		)
+		)
+		)
+		)
+		)
+		)
+		
+		getsetLocalChannels = {|get_outputData,set_outputData,get_dataToSend,set_dataToSend,get_imageTaken_data,set_imageTaken_data,get_ambientLight_data,set_ambientLight_data,get_currentModel_data,set_currentModel_data,get_imageTaken_flag,set_imageTaken_flag,get_ambientLight_flag,set_ambientLight_flag,get_currentModel_flag,set_currentModel_flag,get_imagesWithLight_var,set_imagesWithLight_var|}
+		
+		-- Definition of the behaviour of state machines (default, optimised, visible, visible and optimised)
+		FVS__(id__) = STM_VS_O(id__) \ localClockResets
+		D__(id__) = timed_priority(STM(id__) \ union(internal_events,localClockResets))
+		O__(id__) = dbisim(D__(id__))
+		VS__(id__) = FVS__(id__)
+		VS_O__(id__) = dbisim(FVS__(id__))
+		HEXT__(id__) = O__(id__) [|shared_variable_events|] SKIP
+		FVS_C__(id__) = dbisim(timed_priority(STM(id__) \ internal_events))
+		HUP__(id__) = timed_priority(O__(id__) [|{share__}|] SKIP)
+		
+		-- Clocks
+		
+		Clocks(id__) = terminate -> SKIP
+		
+		clockSync = {||}
+		
+		Clock_CLID_ReadInput(id__,x__) = 
+			TimeOut_1(
+				ReadInput::entered -> Clock_CLID_ReadInput(id__,0)
+				[]
+				get_CLID_ReadInput!x__ -> Clock_CLID_ReadInput(id__,x__)
+				[]
+				terminate -> SKIP,Clock_CLID_ReadInput(id__,clock_type_plus(x__,1,CLID_ReadInput_clock_type(id__))))
+		Clock_CLID_RecordData(id__,x__) = 
+			TimeOut_1(
+				RecordData::entered -> Clock_CLID_RecordData(id__,0)
+				[]
+				get_CLID_RecordData!x__ -> Clock_CLID_RecordData(id__,x__)
+				[]
+				terminate -> SKIP,Clock_CLID_RecordData(id__,clock_type_plus(x__,1,CLID_RecordData_clock_type(id__))))
+		Clock_CLID_SendData(id__,x__) = 
+			TimeOut_1(
+				SendData::entered -> Clock_CLID_SendData(id__,0)
+				[]
+				get_CLID_SendData!x__ -> Clock_CLID_SendData(id__,x__)
+				[]
+				terminate -> SKIP,Clock_CLID_SendData(id__,clock_type_plus(x__,1,CLID_SendData_clock_type(id__))))
+		Clock_CLID_Initialise(id__,x__) = 
+			TimeOut_1(
+				Initialise::entered -> Clock_CLID_Initialise(id__,0)
+				[]
+				get_CLID_Initialise!x__ -> Clock_CLID_Initialise(id__,x__)
+				[]
+				terminate -> SKIP,Clock_CLID_Initialise(id__,clock_type_plus(x__,1,CLID_Initialise_clock_type(id__))))
+		Clock_CLID_ProcessData(id__,x__) = 
+			TimeOut_1(
+				ProcessData::entered -> Clock_CLID_ProcessData(id__,0)
+				[]
+				get_CLID_ProcessData!x__ -> Clock_CLID_ProcessData(id__,x__)
+				[]
+				terminate -> SKIP,Clock_CLID_ProcessData(id__,clock_type_plus(x__,1,CLID_ProcessData_clock_type(id__))))
+		
+		StateClocks(id__) = dbisim(Clock_CLID_ReadInput(id__,0))
+		[| { terminate } |] (
+		dbisim(Clock_CLID_RecordData(id__,0))
+		[| { terminate } |] (
+		dbisim(Clock_CLID_SendData(id__,0))
+		[| { terminate } |] (
+		dbisim(Clock_CLID_Initialise(id__,0))
+		[| { terminate } |] (
+		dbisim(Clock_CLID_ProcessData(id__,0))
+		)
+		)
+		)
+		)
+		
+		stateClockSync = {|get_CLID_ReadInput,ReadInput::entered,get_CLID_RecordData,RecordData::entered,get_CLID_SendData,SendData::entered,get_CLID_Initialise,Initialise::entered,get_CLID_ProcessData,ProcessData::entered|}
+		
+		-- Shared memory
+		-- Shared memory variables
+		
+		-- sharedVarMemory process
+		sharedVarMemory(id__) = terminate -> SKIP
+		
+		sharedVarSync = {||}
+		
+		sharedVarHide = {||}
+		}
+endmodule
+
+
+endmodule

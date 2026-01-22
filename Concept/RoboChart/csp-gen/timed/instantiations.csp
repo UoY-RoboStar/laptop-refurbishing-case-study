@@ -1,0 +1,118 @@
+-- generate string
+nametype core_string = LSeq(Char,2)
+
+-- generate const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING
+const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING = funcToSet(\ x_ @ (0,0), core_nat)
+
+-- generate const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING
+const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING = funcToSet(\ x_ @ (0,0), core_nat)
+
+-- generate Adaptation_Analyse_predecessor
+Adaptation_Analyse_predecessor(x) = 0
+
+-- generate -- OPERATION BOUNDS
+
+-- MODULE CONSTANTS
+
+-- CONTROLLER CONSTANTS
+
+-- STATEMACHINE CONSTANTS
+
+-- OPERATION CONSTANTS
+
+-- BASIC TYPES
+
+-- generate const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD
+const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD = 0
+
+-- generate const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL
+const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL = 0
+
+-- OPERATION CONSTANTS
+
+-- BASIC TYPES
+
+-- generate Plus
+Plus(e1,e2,T) = if member(e1+e2,T) then e1+e2 else e1
+
+-- generate const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD = 0
+
+-- generate --
+
+-- MODULE CONSTANTS
+
+-- CONTROLLER CONSTANTS
+
+-- STATEMACHINE CONSTANTS
+
+-- generate const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING
+const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING = funcToSet(\ x_ @ (0,0), core_nat)
+
+-- generate const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD = 0
+
+-- generate nat
+nametype core_nat = union({0..2},{calc_type_min(Union(
+			{{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, {0..2}))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, {0..2})|pos <- {0..2}},{Plus(model, 1, {0..2})|model <- {0..2}},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))..calc_type_max(Union({{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, {0..2}))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, {0..2})|pos <- {0..2}},{Plus(model, 1, {0..2})|model <- {0..2}},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))})
+
+-- generate const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD
+const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD = 0
+
+-- generate core_clock_type
+nametype core_clock_type = {0..10}
+
+-- BASIC FUNCTIONS
+
+-- generate const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL = 0
+
+-- generate const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD
+const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD = 0
+
+-- generate real
+nametype core_real = union({ -2..2},{calc_type_min(Union(
+			{{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_2((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, core_nat))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, core_nat)|pos <- {0..2}},{Plus(model, 1, core_nat)|model <- {0..2}},{ -2..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))..calc_type_max(Union({{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_2((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, core_nat))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, core_nat)|pos <- {0..2}},{Plus(model, 1, core_nat)|model <- {0..2}},{ -2..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{ -2..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))}) 
+
+-- VECTOR TYPES AND OPERATIONS
+
+
+-- CLOCKS
+
+-- generate const_Adaptation_Adaptation_stm_ref2_NUM_MODELS
+const_Adaptation_Adaptation_stm_ref2_NUM_MODELS = 0
+
+-- generate int
+nametype core_int = union({ -2..2},{calc_type_min(Union(
+			{{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, core_nat))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, core_nat)|pos <- {0..2}},{Plus(model, 1, core_nat)|model <- {0..2}},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))..calc_type_max(Union({{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{newModel_var|newModel_var <- {0..2}},{sequence_toolkit_head(modelRanking)|modelRanking <- LSeq(core_nat,2)},{tuple3_3((access_(imagesWithLight_var, i)))|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2),i <- {0..2}},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{Adaptation_Analyse_predecessor(i)|i <- {0..2}},{0},{length(imagesWithLight_var)|imagesWithLight_var <- LSeq({(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat},2)},{tuple3_3(data)|data <- {(x0__,x1__,x2__) | x0__ <- Types_ScrewImageData,x1__ <- core_real,x2__ <- core_nat}},{1},{1},{1},{},{1},{access_(modelRanking, Plus(pos, 1, core_nat))|modelRanking <- LSeq(core_nat,2),pos <- {0..2}},{model|model <- {0..2}},{Plus(pos, 1, core_nat)|pos <- {0..2}},{Plus(model, 1, core_nat)|model <- {0..2}},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{0..2},{model|model <- {0..2}},{model|model <- {0..2}},{model|model <- {0..2}},{i|i <- {0..2}},{model|model <- {0..2}},{newModel_var|newModel_var <- {0..2}},{i|i <- {0..2}}}))})
+
+-- generate const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD
+const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD = 0
+
+-- generate Div
+Div(e1,e2,T) = if member(e1/e2,T) then e1/e2 else e1
+
+-- generate Adaptation_Legitimate_checkImage
+Adaptation_Legitimate_checkImage(image,model) = <>
+
+-- generate Neg
+Neg(e1,T) = if member(-e1,T) then -e1 else e1
+
+-- generate boolean
+nametype core_boolean = Bool
+
+-- generate const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS
+const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS = 0
+
+-- generate Mult
+Mult(e1,e2,T) = if member(e1*e2,T) then e1*e2 else e1
+
+-- generate Modulus
+Modulus(e1,e2,T) = if member(e1%e2,T) then e1%e2 else e1
+
+-- generate const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING
+const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING = funcToSet(\ x_ @ (0,0), core_nat)
+
+-- generate Minus
+Minus(e1,e2,T) = if member(e1-e2,T) then e1-e2 else e1
+

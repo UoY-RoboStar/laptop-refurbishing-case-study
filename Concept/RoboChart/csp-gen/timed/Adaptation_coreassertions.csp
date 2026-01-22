@@ -1,0 +1,169 @@
+
+--
+-- RoboChart generator version 3.0.0.qualifier
+-- Automatically generated on 06-01-2026 10:12:27
+--
+-- Iterated compression status: true
+-- Assertions compression status: false
+--
+
+include "Adaptation.csp"
+
+
+
+-- generate Adaptation_Adaptation
+P_Adaptation_Adaptation = let
+	id__ = 0
+	
+	
+	
+	const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING = const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD = const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD = const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+	const_Adaptation_Adaptation_stm_ref2_NUM_MODELS = const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS
+	const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING = const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING
+	const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL = const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+		
+within
+	Adaptation::Adaptation::O__(id__,
+			    const_Adaptation_Adaptation_stm_ref1_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref1_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref1_ANOMALY_TIME_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref3_CONFIDENCE_THRESHOLD,
+			    const_Adaptation_Adaptation_stm_ref2_NUM_MODELS,
+			    const_Adaptation_Adaptation_stm_ref2_IDEAL_LIGHTING,
+			    const_Adaptation_Adaptation_stm_ref2_FALLBACK_MODEL)
+
+assert P_Adaptation_Adaptation :[deadlock-free]	
+assert P_Adaptation_Adaptation;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation :[deterministic]
+assert P_Adaptation_Adaptation :[divergence-free]
+
+-- generate Adaptation_Adaptation_stm_ref0
+P_Adaptation_Adaptation_stm_ref0 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref0::O__(
+		id__
+	)
+assert P_Adaptation_Adaptation_stm_ref0 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref0;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref0 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref0 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref0[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref0
+-- generate Adaptation_Adaptation_stm_ref1
+P_Adaptation_Adaptation_stm_ref1 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref1::O__(
+		id__,
+		const_Adaptation_Analyse_Adaptation_Analyse_CONFIDENCE_THRESHOLD,
+		const_Adaptation_Analyse_Adaptation_Analyse_IDEAL_LIGHTING,
+		const_Adaptation_Analyse_Adaptation_Analyse_ANOMALY_TIME_THRESHOLD
+	)
+assert P_Adaptation_Adaptation_stm_ref1 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref1;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref1 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref1 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref1[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref1
+-- generate Adaptation_Adaptation_stm_ref3
+P_Adaptation_Adaptation_stm_ref3 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref3::O__(
+		id__,
+		const_Adaptation_Legitimate_Adaptation_Legitimate_CONFIDENCE_THRESHOLD
+	)
+assert P_Adaptation_Adaptation_stm_ref3 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref3;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref3 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref3 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref3[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref3
+-- generate Adaptation_Adaptation_stm_ref5
+P_Adaptation_Adaptation_stm_ref5 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref5::O__(
+		id__
+	)
+assert P_Adaptation_Adaptation_stm_ref5 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref5;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref5 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref5 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref5[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref5
+-- generate Adaptation_Adaptation_stm_ref2
+P_Adaptation_Adaptation_stm_ref2 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref2::O__(
+		id__,
+		const_Adaptation_Plan_Adaptation_Plan_NUM_MODELS,
+		const_Adaptation_Plan_Adaptation_Plan_IDEAL_LIGHTING,
+		const_Adaptation_Plan_Adaptation_Plan_FALLBACK_MODEL
+	)
+assert P_Adaptation_Adaptation_stm_ref2 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref2;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref2 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref2 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref2[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref2
+-- generate Adaptation_Adaptation_stm_ref4
+P_Adaptation_Adaptation_stm_ref4 = let
+	id__ = 0
+	
+	
+	
+within
+	Adaptation::Adaptation::stm_ref4::O__(
+		id__
+	)
+assert P_Adaptation_Adaptation_stm_ref4 :[deadlock-free]	
+assert P_Adaptation_Adaptation_stm_ref4;RUN({r__}) :[deadlock-free]
+assert P_Adaptation_Adaptation_stm_ref4 :[deterministic]
+assert P_Adaptation_Adaptation_stm_ref4 :[divergence-free]
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation_stm_ref4[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation_stm_ref4
+-- timed deadlock free
+assert prioritise(P_Adaptation_Adaptation[[tock<-tock,tock<-tock']],<diff(Events,{tock',tock}),{tock}>)\{tock} :[divergence free [FD]]
+
+-- timelock free
+assert RUN({tock}) ||| CHAOS(diff(Events,{|tock|})) [F= P_Adaptation_Adaptation
+
