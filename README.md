@@ -7,7 +7,7 @@ This repository contains artifacts for the Laptop Refurbishing case study from t
 * `Design` - models in the [Architecture Analysis and Design Language (AADL)](https://www.sei.cmu.edu/projects/architecture-analysis-and-design-language-aadl/), giving the detailed architecture for the robot software
 * `Realisation` - source code for the implementation of the robot software
 
-## Required RoboTool plugins
+### Required RoboTool plugins
 
 The RoboArch and RoboChart models are to be used with [RoboTool](https://robostar.cs.york.ac.uk/robotool/), using the following plugins available from the RoboTool Eclipse update site (https://robostar.cs.york.ac.uk/robotool/update/) or the individual update sites listed below:
 
