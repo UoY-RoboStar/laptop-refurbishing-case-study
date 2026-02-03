@@ -1,0 +1,25 @@
+package messages
+public
+  with Base_Types, Data_Model;
+    data ImageData
+      features
+        pixels: provides data access messages::[nat*nat*nat];
+        height: provides data access Base_Types::Natural;
+        width: provides data access Base_Types::Natural;
+    end ImageData;
+    data EstimatedPosition
+      features
+        topLeft: provides data access Base_Types::Natural;
+        bottomRight: provides data access Base_Types::Natural;
+        confidence: provides data access Base_Types::Float;
+    end EstimatedPosition;
+    data ScrewImageData
+      features
+        position: provides data access Base_Types::Float;
+        orientation: provides data access Base_Types::Float;
+        image: provides data access messages::ImageData;
+        screwsDetected: provides data access messages::EstimatedPosition;
+    end ScrewImageData;
+    data nat -> real
+    end nat -> real;
+end messages;
