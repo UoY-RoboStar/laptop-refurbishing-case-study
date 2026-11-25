@@ -6,23 +6,6 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		from i0
 		to Knowledge
 	}
-	transition images_get_trans {
-		from Knowledge
-		to Knowledge
-		trigger get_images
-		action images ! images_var
-	}
-	transition images_set_trans {
-		from Knowledge
-		to Knowledge
-		trigger set_images ? images_var
-	}
-	transition images_ext_trans {
-		from Knowledge
-		to Knowledge
-		trigger get_images_ext
-		action images_ext ! images_var
-	}
 	transition currentModel_get_trans {
 		from Knowledge
 		to Knowledge
@@ -40,11 +23,22 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_currentModel_ext
 		action currentModel_ext ! currentModel_var
 	}
-	transition images_get_Analyse_trans {
+	transition images_get_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_images_Analyse
-		action images_Analyse ! images_var
+		trigger get_images
+		action images ! images_var
+	}
+	transition images_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_images ? images_var
+	}
+	transition images_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_images_ext
+		action images_ext ! images_var
 	}
 	transition currentModel_get_Analyse_trans {
 		from Knowledge
@@ -52,11 +46,11 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_currentModel_Analyse
 		action currentModel_Analyse ! currentModel_var
 	}
-	transition images_get_Plan_trans {
+	transition images_get_Analyse_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_images_Plan
-		action images_Plan ! images_var
+		trigger get_images_Analyse
+		action images_Analyse ! images_var
 	}
 	transition currentModel_get_Plan_trans {
 		from Knowledge
@@ -64,17 +58,23 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_currentModel_Plan
 		action currentModel_Plan ! currentModel_var
 	}
-	transition images_get_Legitimate_trans {
+	transition images_get_Plan_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_images_Legitimate
-		action images_Legitimate ! images_var
+		trigger get_images_Plan
+		action images_Plan ! images_var
 	}
 	transition currentModel_get_Legitimate_trans {
 		from Knowledge
 		to Knowledge
 		trigger get_currentModel_Legitimate
 		action currentModel_Legitimate ! currentModel_var
+	}
+	transition images_get_Legitimate_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_images_Legitimate
+		action images_Legitimate ! images_var
 	}
 	transition averageUncertainty_get_trans {
 		from Knowledge
@@ -104,23 +104,6 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		to Knowledge
 		trigger get_averageUncertainty_Legitimate
 		action averageUncertainty_Legitimate ! averageUncertainty_var
-	}
-	transition estimatedLight_get_trans {
-		from Knowledge
-		to Knowledge
-		trigger get_estimatedLight
-		action estimatedLight ! estimatedLight_var
-	}
-	transition estimatedLight_set_trans {
-		from Knowledge
-		to Knowledge
-		trigger set_estimatedLight ? estimatedLight_var
-	}
-	transition estimatedLight_ext_trans {
-		from Knowledge
-		to Knowledge
-		trigger get_estimatedLight_ext
-		action estimatedLight_ext ! estimatedLight_var
 	}
 	transition triedThirdModel_get_trans {
 		from Knowledge
@@ -156,11 +139,22 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_proposedPlan_ext
 		action proposedPlan_ext ! proposedPlan_var
 	}
-	transition estimatedLight_get_Legitimate_trans {
+	transition estimatedLight_get_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_estimatedLight_Legitimate
-		action estimatedLight_Legitimate ! estimatedLight_var
+		trigger get_estimatedLight
+		action estimatedLight ! estimatedLight_var
+	}
+	transition estimatedLight_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_estimatedLight ? estimatedLight_var
+	}
+	transition estimatedLight_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_estimatedLight_ext
+		action estimatedLight_ext ! estimatedLight_var
 	}
 	transition triedThirdModel_get_Legitimate_trans {
 		from Knowledge
@@ -174,11 +168,11 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_proposedPlan_Legitimate
 		action proposedPlan_Legitimate ! proposedPlan_var
 	}
-	transition estimatedLight_get_Execute_trans {
+	transition estimatedLight_get_Legitimate_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_estimatedLight_Execute
-		action estimatedLight_Execute ! estimatedLight_var
+		trigger get_estimatedLight_Legitimate
+		action estimatedLight_Legitimate ! estimatedLight_var
 	}
 	transition triedThirdModel_get_Execute_trans {
 		from Knowledge
@@ -192,22 +186,11 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_proposedPlan_Execute
 		action proposedPlan_Execute ! proposedPlan_var
 	}
-	transition newPosition_get_trans {
+	transition estimatedLight_get_Execute_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_newPosition
-		action newPosition ! newPosition_var
-	}
-	transition newPosition_set_trans {
-		from Knowledge
-		to Knowledge
-		trigger set_newPosition ? newPosition_var
-	}
-	transition newPosition_ext_trans {
-		from Knowledge
-		to Knowledge
-		trigger get_newPosition_ext
-		action newPosition_ext ! newPosition_var
+		trigger get_estimatedLight_Execute
+		action estimatedLight_Execute ! estimatedLight_var
 	}
 	transition newAverageUncertainty_get_trans {
 		from Knowledge
@@ -226,17 +209,34 @@ package Adaptation_Knowledge import Types::* stm Adaptation_Knowledge {
 		trigger get_newAverageUncertainty_ext
 		action newAverageUncertainty_ext ! newAverageUncertainty_var
 	}
-	transition newPosition_get_Plan_trans {
+	transition newPosition_get_trans {
 		from Knowledge
 		to Knowledge
-		trigger get_newPosition_Plan
-		action newPosition_Plan ! newPosition_var
+		trigger get_newPosition
+		action newPosition ! newPosition_var
+	}
+	transition newPosition_set_trans {
+		from Knowledge
+		to Knowledge
+		trigger set_newPosition ? newPosition_var
+	}
+	transition newPosition_ext_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newPosition_ext
+		action newPosition_ext ! newPosition_var
 	}
 	transition newAverageUncertainty_get_Plan_trans {
 		from Knowledge
 		to Knowledge
 		trigger get_newAverageUncertainty_Plan
 		action newAverageUncertainty_Plan ! newAverageUncertainty_var
+	}
+	transition newPosition_get_Plan_trans {
+		from Knowledge
+		to Knowledge
+		trigger get_newPosition_Plan
+		action newPosition_Plan ! newPosition_var
 	}
 }
 

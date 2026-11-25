@@ -2,298 +2,53 @@
 <robochart:RCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart" name="Adaptation_Knowledge">
   <imports importedNamespace="Types::*"/>
   <machines name="Adaptation_Knowledge">
-    <interfaces href="Types.xmi#//@interfaces.7"/>
-    <interfaces href="Types.xmi#//@interfaces.10"/>
-    <interfaces href="Types.xmi#//@interfaces.15"/>
-    <interfaces href="Types.xmi#//@interfaces.9"/>
-    <interfaces href="Types.xmi#//@interfaces.27"/>
-    <interfaces href="Types.xmi#//@interfaces.21"/>
-    <interfaces href="Types.xmi#//@interfaces.28"/>
-    <interfaces href="Types.xmi#//@interfaces.32"/>
-    <interfaces href="Types.xmi#//@interfaces.29"/>
-    <interfaces href="Types.xmi#//@interfaces.14"/>
-    <interfaces href="Types.xmi#//@interfaces.31"/>
-    <interfaces href="Types.xmi#//@interfaces.23"/>
-    <interfaces href="Types.xmi#//@interfaces.5"/>
-    <interfaces href="Types.xmi#//@interfaces.11"/>
-    <interfaces href="Types.xmi#//@interfaces.12"/>
-    <interfaces href="Types.xmi#//@interfaces.6"/>
-    <interfaces href="Types.xmi#//@interfaces.17"/>
-    <interfaces href="Types.xmi#//@interfaces.20"/>
-    <interfaces href="Types.xmi#//@interfaces.18"/>
-    <interfaces href="Types.xmi#//@interfaces.30"/>
-    <interfaces href="Types.xmi#//@interfaces.24"/>
     <interfaces href="Types.xmi#//@interfaces.25"/>
+    <interfaces href="Types.xmi#//@interfaces.15"/>
+    <interfaces href="Types.xmi#//@interfaces.31"/>
+    <interfaces href="Types.xmi#//@interfaces.29"/>
+    <interfaces href="Types.xmi#//@interfaces.23"/>
+    <interfaces href="Types.xmi#//@interfaces.11"/>
+    <interfaces href="Types.xmi#//@interfaces.6"/>
+    <interfaces href="Types.xmi#//@interfaces.4"/>
     <interfaces href="Types.xmi#//@interfaces.13"/>
+    <interfaces href="Types.xmi#//@interfaces.21"/>
+    <interfaces href="Types.xmi#//@interfaces.18"/>
+    <interfaces href="Types.xmi#//@interfaces.12"/>
+    <interfaces href="Types.xmi#//@interfaces.30"/>
+    <interfaces href="Types.xmi#//@interfaces.10"/>
     <interfaces href="Types.xmi#//@interfaces.26"/>
+    <interfaces href="Types.xmi#//@interfaces.24"/>
+    <interfaces href="Types.xmi#//@interfaces.27"/>
+    <interfaces href="Types.xmi#//@interfaces.28"/>
+    <interfaces href="Types.xmi#//@interfaces.20"/>
+    <interfaces href="Types.xmi#//@interfaces.16"/>
+    <interfaces href="Types.xmi#//@interfaces.5"/>
+    <interfaces href="Types.xmi#//@interfaces.14"/>
+    <interfaces href="Types.xmi#//@interfaces.22"/>
+    <interfaces href="Types.xmi#//@interfaces.32"/>
     <nodes xsi:type="robochart:Initial" name="i0"/>
     <nodes xsi:type="robochart:State" name="Knowledge"/>
     <transitions name="t0" source="//@machines.0/@nodes.0" target="//@machines.0/@nodes.1"/>
-    <transitions name="images_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.27/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.27/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="images_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.21/@events.0"/>
-        <parameter href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="images_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.28/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.28/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
     <transitions name="currentModel_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
-        <event href="Types.xmi#//@interfaces.27/@events.3"/>
+        <event href="Types.xmi#//@interfaces.23/@events.3"/>
       </trigger>
       <action xsi:type="robochart:CommunicationStmt">
         <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.27/@events.2"/>
+          <event href="Types.xmi#//@interfaces.23/@events.2"/>
           <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
           </value>
         </communication>
       </action>
     </transitions>
     <transitions name="currentModel_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.21/@events.1"/>
-        <parameter href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
+        <event href="Types.xmi#//@interfaces.11/@events.1"/>
+        <parameter href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
       </trigger>
     </transitions>
     <transitions name="currentModel_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.28/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.28/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="images_get_Analyse_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.32/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.32/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="currentModel_get_Analyse_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.32/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.32/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="images_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.29/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.29/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="currentModel_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.29/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.29/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="images_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.14/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.14/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="currentModel_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.14/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.14/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.7/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="averageUncertainty_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.31/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.31/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.10/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="averageUncertainty_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.23/@events.0"/>
-        <parameter href="Types.xmi#//@interfaces.10/@variableList.0/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="averageUncertainty_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.5/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.5/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.10/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="averageUncertainty_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.11/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.11/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.10/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="averageUncertainty_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.12/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.12/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.10/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="estimatedLight_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.6/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.6/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="estimatedLight_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.17/@events.0"/>
-        <parameter href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="estimatedLight_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.20/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.20/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="triedThirdModel_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.6/@events.5"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.6/@events.4"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.2/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="triedThirdModel_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.17/@events.2"/>
-        <parameter href="Types.xmi#//@interfaces.15/@variableList.2/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="triedThirdModel_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.20/@events.5"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.20/@events.4"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.2/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="proposedPlan_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
         <event href="Types.xmi#//@interfaces.6/@events.3"/>
       </trigger>
@@ -301,31 +56,122 @@
         <communication _type="OUTPUT">
           <event href="Types.xmi#//@interfaces.6/@events.2"/>
           <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.1/@vars.0"/>
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
           </value>
         </communication>
       </action>
     </transitions>
-    <transitions name="proposedPlan_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.17/@events.1"/>
-        <parameter href="Types.xmi#//@interfaces.15/@variableList.1/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="proposedPlan_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+    <transitions name="images_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
-        <event href="Types.xmi#//@interfaces.20/@events.3"/>
+        <event href="Types.xmi#//@interfaces.23/@events.1"/>
       </trigger>
       <action xsi:type="robochart:CommunicationStmt">
         <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.20/@events.2"/>
+          <event href="Types.xmi#//@interfaces.23/@events.0"/>
           <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.1/@vars.0"/>
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
           </value>
         </communication>
       </action>
     </transitions>
-    <transitions name="estimatedLight_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+    <transitions name="images_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.11/@events.0"/>
+        <parameter href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="images_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.6/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.6/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="currentModel_get_Analyse_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.4/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.4/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="images_get_Analyse_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.4/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.4/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="currentModel_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.13/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.13/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="images_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.13/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.13/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="currentModel_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.21/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.21/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="images_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.21/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.21/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.25/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="averageUncertainty_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
         <event href="Types.xmi#//@interfaces.18/@events.1"/>
       </trigger>
@@ -338,33 +184,13 @@
         </communication>
       </action>
     </transitions>
-    <transitions name="triedThirdModel_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.18/@events.5"/>
+    <transitions name="averageUncertainty_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.12/@events.0"/>
+        <parameter href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
       </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.18/@events.4"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.2/@vars.0"/>
-          </value>
-        </communication>
-      </action>
     </transitions>
-    <transitions name="proposedPlan_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.18/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.18/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="estimatedLight_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+    <transitions name="averageUncertainty_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
         <event href="Types.xmi#//@interfaces.30/@events.1"/>
       </trigger>
@@ -377,110 +203,20 @@
         </communication>
       </action>
     </transitions>
-    <transitions name="triedThirdModel_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+    <transitions name="averageUncertainty_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
-        <event href="Types.xmi#//@interfaces.30/@events.5"/>
+        <event href="Types.xmi#//@interfaces.10/@events.1"/>
       </trigger>
       <action xsi:type="robochart:CommunicationStmt">
         <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.30/@events.4"/>
+          <event href="Types.xmi#//@interfaces.10/@events.0"/>
           <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.2/@vars.0"/>
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
           </value>
         </communication>
       </action>
     </transitions>
-    <transitions name="proposedPlan_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.30/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.30/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newPosition_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.24/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.24/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newPosition_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.25/@events.1"/>
-        <parameter href="Types.xmi#//@interfaces.9/@variableList.1/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="newPosition_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.13/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.13/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newAverageUncertainty_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.24/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.24/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newAverageUncertainty_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger _type="INPUT">
-        <event href="Types.xmi#//@interfaces.25/@events.0"/>
-        <parameter href="Types.xmi#//@interfaces.9/@variableList.0/@vars.0"/>
-      </trigger>
-    </transitions>
-    <transitions name="newAverageUncertainty_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.13/@events.1"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.13/@events.0"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.0/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newPosition_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
-      <trigger>
-        <event href="Types.xmi#//@interfaces.26/@events.3"/>
-      </trigger>
-      <action xsi:type="robochart:CommunicationStmt">
-        <communication _type="OUTPUT">
-          <event href="Types.xmi#//@interfaces.26/@events.2"/>
-          <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.1/@vars.0"/>
-          </value>
-        </communication>
-      </action>
-    </transitions>
-    <transitions name="newAverageUncertainty_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+    <transitions name="averageUncertainty_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
       <trigger>
         <event href="Types.xmi#//@interfaces.26/@events.1"/>
       </trigger>
@@ -488,7 +224,271 @@
         <communication _type="OUTPUT">
           <event href="Types.xmi#//@interfaces.26/@events.0"/>
           <value xsi:type="robochart:RefExp">
-            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.9/@variableList.0/@vars.0"/>
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.15/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="triedThirdModel_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.24/@events.5"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.24/@events.4"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.2/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="triedThirdModel_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.27/@events.2"/>
+        <parameter href="Types.xmi#//@interfaces.31/@variableList.2/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="triedThirdModel_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.28/@events.5"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.28/@events.4"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.2/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="proposedPlan_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.24/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.24/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="proposedPlan_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.27/@events.1"/>
+        <parameter href="Types.xmi#//@interfaces.31/@variableList.1/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="proposedPlan_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.28/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.28/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="estimatedLight_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.24/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.24/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="estimatedLight_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.27/@events.0"/>
+        <parameter href="Types.xmi#//@interfaces.31/@variableList.0/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="estimatedLight_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.28/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.28/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="triedThirdModel_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.20/@events.5"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.20/@events.4"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.2/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="proposedPlan_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.20/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.20/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="estimatedLight_get_Legitimate_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.20/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.20/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="triedThirdModel_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.16/@events.5"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.16/@events.4"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.2/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="proposedPlan_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.16/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.16/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="estimatedLight_get_Execute_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.16/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.16/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.31/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newAverageUncertainty_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.5/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.5/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newAverageUncertainty_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.14/@events.0"/>
+        <parameter href="Types.xmi#//@interfaces.29/@variableList.0/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="newAverageUncertainty_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.22/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.22/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newPosition_get_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.5/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.5/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newPosition_set_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger _type="INPUT">
+        <event href="Types.xmi#//@interfaces.14/@events.1"/>
+        <parameter href="Types.xmi#//@interfaces.29/@variableList.1/@vars.0"/>
+      </trigger>
+    </transitions>
+    <transitions name="newPosition_ext_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.22/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.22/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.1/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newAverageUncertainty_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.32/@events.1"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.32/@events.0"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.0/@vars.0"/>
+          </value>
+        </communication>
+      </action>
+    </transitions>
+    <transitions name="newPosition_get_Plan_trans" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1">
+      <trigger>
+        <event href="Types.xmi#//@interfaces.32/@events.3"/>
+      </trigger>
+      <action xsi:type="robochart:CommunicationStmt">
+        <communication _type="OUTPUT">
+          <event href="Types.xmi#//@interfaces.32/@events.2"/>
+          <value xsi:type="robochart:RefExp">
+            <ref xsi:type="robochart:Variable" href="Types.xmi#//@interfaces.29/@variableList.1/@vars.0"/>
           </value>
         </communication>
       </action>

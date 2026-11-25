@@ -18,14 +18,121 @@ interface ArmSensors {
 	event positionOrientation : ( real * real * real ) * ( real * real * real )
 }
 
+interface Adaptation_RecordedData_Analyse_events {
+	event images_Analyse : Seq( ScrewImageData )
+	event get_images_Analyse
+	event currentModel_Analyse : VisionModel
+	event get_currentModel_Analyse
+}
+
+interface Adaptation_VerificationInfo_events {
+	event newAverageUncertainty : real
+	event get_newAverageUncertainty
+	event newPosition : real * real * real
+	event get_newPosition
+}
+
+interface Adaptation_RecordedData_ext_events {
+	event images_ext : Seq( ScrewImageData )
+	event get_images_ext
+	event currentModel_ext : VisionModel
+	event get_currentModel_ext
+}
+
 interface Adaptation_Inputs {
 	event imageTaken : ScrewImageData
 	event modelChanged : VisionModel
 }
 
-interface Adaptation_AnalysisResults_ext_events {
-	event averageUncertainty_ext : nat
-	event get_averageUncertainty_ext
+interface Adaptation_Outputs {
+	event newPlan : AdaptationPlan
+}
+
+interface Adaptation_InputFlags {
+	var imageTaken_flag : boolean
+	var modelChanged_flag : boolean
+}
+
+interface Adaptation_AnalysisResults_Plan_events {
+	event averageUncertainty_Plan : nat
+	event get_averageUncertainty_Plan
+}
+
+interface Adaptation_RecordedData_set_events {
+	event set_images : Seq( ScrewImageData )
+	event set_currentModel : VisionModel
+}
+
+interface Adaptation_AnalysisResults_set_events {
+	event set_averageUncertainty : nat
+}
+
+interface Adaptation_RecordedData_Plan_events {
+	event images_Plan : Seq( ScrewImageData )
+	event get_images_Plan
+	event currentModel_Plan : VisionModel
+	event get_currentModel_Plan
+}
+
+interface Adaptation_VerificationInfo_set_events {
+	event set_newAverageUncertainty : real
+	event set_newPosition : real * real * real
+}
+
+interface Adaptation_AnalysisResults {
+	var averageUncertainty_var : nat
+}
+
+interface Adaptation_PlanData_Execute_events {
+	event estimatedLight_Execute : real
+	event get_estimatedLight_Execute
+	event proposedPlan_Execute : AdaptationPlan
+	event get_proposedPlan_Execute
+	event triedThirdModel_Execute : boolean
+	event get_triedThirdModel_Execute
+}
+
+interface Adaptation_InputVars {
+	var imageTaken_data : ScrewImageData
+	var modelChanged_data : VisionModel
+}
+
+interface Adaptation_AnalysisResults_events {
+	event averageUncertainty : nat
+	event get_averageUncertainty
+}
+
+interface IAdaptation {
+}
+
+interface Adaptation_PlanData_Legitimate_events {
+	event estimatedLight_Legitimate : real
+	event get_estimatedLight_Legitimate
+	event proposedPlan_Legitimate : AdaptationPlan
+	event get_proposedPlan_Legitimate
+	event triedThirdModel_Legitimate : boolean
+	event get_triedThirdModel_Legitimate
+}
+
+interface Adaptation_RecordedData_Legitimate_events {
+	event images_Legitimate : Seq( ScrewImageData )
+	event get_images_Legitimate
+	event currentModel_Legitimate : VisionModel
+	event get_currentModel_Legitimate
+}
+
+interface Adaptation_VerificationInfo_ext_events {
+	event newAverageUncertainty_ext : real
+	event get_newAverageUncertainty_ext
+	event newPosition_ext : real * real * real
+	event get_newPosition_ext
+}
+
+interface Adaptation_RecordedData_events {
+	event images : Seq( ScrewImageData )
+	event get_images
+	event currentModel : VisionModel
+	event get_currentModel
 }
 
 interface Adaptation_PlanData_events {
@@ -39,25 +146,7 @@ interface Adaptation_PlanData_events {
 
 interface Adaptation_RecordedData {
 	var images_var : Seq( ScrewImageData )
-	var currentModel_var : nat
-}
-
-interface Adaptation_Outputs {
-	event newPlan : AdaptationPlan
-}
-
-interface Adaptation_VerificationInfo {
-	var newAverageUncertainty_var : real
-	var newPosition_var : real * real * real
-}
-
-interface Adaptation_AnalysisResults {
-	var averageUncertainty_var : nat
-}
-
-interface Adaptation_AnalysisResults_Plan_events {
-	event averageUncertainty_Plan : nat
-	event get_averageUncertainty_Plan
+	var currentModel_var : VisionModel
 }
 
 interface Adaptation_AnalysisResults_Legitimate_events {
@@ -65,47 +154,10 @@ interface Adaptation_AnalysisResults_Legitimate_events {
 	event get_averageUncertainty_Legitimate
 }
 
-interface Adaptation_VerificationInfo_ext_events {
-	event newAverageUncertainty_ext : real
-	event get_newAverageUncertainty_ext
-	event newPosition_ext : real * real * real
-	event get_newPosition_ext
-}
-
-interface Adaptation_RecordedData_Legitimate_events {
-	event images_Legitimate : Seq( ScrewImageData )
-	event get_images_Legitimate
-	event currentModel_Legitimate : nat
-	event get_currentModel_Legitimate
-}
-
-interface Adaptation_PlanData {
-	var estimatedLight_var : real
-	var proposedPlan_var : AdaptationPlan
-	var triedThirdModel_var : boolean
-}
-
-interface Adaptation_InputVars {
-	var imageTaken_data : ScrewImageData
-	var modelChanged_data : VisionModel
-}
-
 interface Adaptation_PlanData_set_events {
 	event set_estimatedLight : real
 	event set_proposedPlan : AdaptationPlan
 	event set_triedThirdModel : boolean
-}
-
-interface Adaptation_PlanData_Legitimate_events {
-	event estimatedLight_Legitimate : real
-	event get_estimatedLight_Legitimate
-	event proposedPlan_Legitimate : AdaptationPlan
-	event get_proposedPlan_Legitimate
-	event triedThirdModel_Legitimate : boolean
-	event get_triedThirdModel_Legitimate
-}
-
-interface IAdaptation {
 }
 
 interface Adaptation_PlanData_ext_events {
@@ -117,30 +169,20 @@ interface Adaptation_PlanData_ext_events {
 	event get_triedThirdModel_ext
 }
 
-interface Adaptation_RecordedData_set_events {
-	event set_images : Seq( ScrewImageData )
-	event set_currentModel : nat
+interface Adaptation_VerificationInfo {
+	var newAverageUncertainty_var : real
+	var newPosition_var : real * real * real
 }
 
-interface Adaptation_InputFlags {
-	var imageTaken_flag : boolean
-	var modelChanged_flag : boolean
+interface Adaptation_AnalysisResults_ext_events {
+	event averageUncertainty_ext : nat
+	event get_averageUncertainty_ext
 }
 
-interface Adaptation_AnalysisResults_set_events {
-	event set_averageUncertainty : nat
-}
-
-interface Adaptation_VerificationInfo_events {
-	event newAverageUncertainty : real
-	event get_newAverageUncertainty
-	event newPosition : real * real * real
-	event get_newPosition
-}
-
-interface Adaptation_VerificationInfo_set_events {
-	event set_newAverageUncertainty : real
-	event set_newPosition : real * real * real
+interface Adaptation_PlanData {
+	var estimatedLight_var : real
+	var proposedPlan_var : AdaptationPlan
+	var triedThirdModel_var : boolean
 }
 
 interface Adaptation_VerificationInfo_Plan_events {
@@ -150,46 +192,4 @@ interface Adaptation_VerificationInfo_Plan_events {
 	event get_newPosition_Plan
 }
 
-interface Adaptation_RecordedData_events {
-	event images : Seq( ScrewImageData )
-	event get_images
-	event currentModel : nat
-	event get_currentModel
-}
-
-interface Adaptation_RecordedData_ext_events {
-	event images_ext : Seq( ScrewImageData )
-	event get_images_ext
-	event currentModel_ext : nat
-	event get_currentModel_ext
-}
-
-interface Adaptation_RecordedData_Plan_events {
-	event images_Plan : Seq( ScrewImageData )
-	event get_images_Plan
-	event currentModel_Plan : nat
-	event get_currentModel_Plan
-}
-
-interface Adaptation_PlanData_Execute_events {
-	event estimatedLight_Execute : real
-	event get_estimatedLight_Execute
-	event proposedPlan_Execute : AdaptationPlan
-	event get_proposedPlan_Execute
-	event triedThirdModel_Execute : boolean
-	event get_triedThirdModel_Execute
-}
-
-interface Adaptation_AnalysisResults_events {
-	event averageUncertainty : nat
-	event get_averageUncertainty
-}
-
-interface Adaptation_RecordedData_Analyse_events {
-	event images_Analyse : Seq( ScrewImageData )
-	event get_images_Analyse
-	event currentModel_Analyse : nat
-	event get_currentModel_Analyse
-}
-
-record ImageData { pixels : Seq( Seq( nat * nat * nat ) ) height : nat width : nat } enumeration VisionModel { DimModel NormalModel BrightModel } record EstimatedPosition { topLeft : nat * nat bottomRight : nat * nat uncertainty : real } record ScrewImageData { position : real * real * real orientation : real * real * real image : ImageData screwsDetected : Seq( EstimatedPosition ) } enumeration AdaptationPlan { NewModel ( VisionModel ) MoveDown StopRobot }
+datatype ImageData { pixels : Seq( Seq( nat * nat * nat ) ) height : nat width : nat } enumeration VisionModel { DimModel NormalModel BrightModel } datatype EstimatedPosition { topLeft : nat * nat bottomRight : nat * nat uncertainty : real } datatype ScrewImageData { position : real * real * real orientation : real * real * real image : ImageData screwsDetected : Seq( EstimatedPosition ) } enumeration AdaptationPlan { NewModel ( VisionModel ) MoveDown StopRobot }

@@ -37,7 +37,7 @@
     </domain>
   </robochart:SeqType>
   <robochart:TypeRef>
-    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/nat"/>
+    <ref xsi:type="robochart:Enumeration" href="Types.xmi#//@types.1"/>
   </robochart:TypeRef>
   <robochart:TypeRef>
     <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/nat"/>

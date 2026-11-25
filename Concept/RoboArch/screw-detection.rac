@@ -96,7 +96,7 @@ layer Adaptation : PlanningLayer {
 		inputs = imageTaken, modelChanged;
 		processed_data_type = ScrewImageData;
 		recorded_data = images : Seq(ScrewImageData);
-		recorded_data = currentModel : nat;
+		recorded_data = currentModel : VisionModel;
 	}
 	analyse {
 		// compute average uncertainty and check against threshold
