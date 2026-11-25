@@ -1,7 +1,7 @@
 package Adaptation_Monitor import Types::* stm Adaptation_Monitor {
-	uses Adaptation_Inputs uses Adaptation_InputVars uses Adaptation_InputFlags uses Adaptation_RecordedData_events uses Adaptation_RecordedData_set_events var outputData : ScrewImageData * real * nat
+	uses Adaptation_Inputs uses Adaptation_InputVars uses Adaptation_InputFlags uses Adaptation_RecordedData_events uses Adaptation_RecordedData_set_events var outputData : ScrewImageData
 	var dataToSend : boolean
-	event processedData : ScrewImageData * real * nat
+	event processedData : ScrewImageData
 	initial i0
 	state Initialise {
 	}
@@ -28,17 +28,11 @@ package Adaptation_Monitor import Types::* stm Adaptation_Monitor {
 		trigger imageTaken ? imageTaken_data
 		action imageTaken_flag = true
 	}
-	transition t2_ambientLight {
+	transition t2_modelChanged {
 		from ReadInput
 		to ProcessData
-		trigger ambientLight ? ambientLight_data
-		action ambientLight_flag = true
-	}
-	transition t2_currentModel {
-		from ReadInput
-		to ProcessData
-		trigger currentModel ? currentModel_data
-		action currentModel_flag = true
+		trigger modelChanged ? modelChanged_data
+		action modelChanged_flag = true
 	}
 	transition t3 {
 		from ProcessData

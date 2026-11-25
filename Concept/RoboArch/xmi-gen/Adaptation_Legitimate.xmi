@@ -5,18 +5,18 @@
     <variableList>
       <vars name="planLegitimated">
         <type xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/boolean"/>
         </type>
       </vars>
     </variableList>
     <events name="verifyPlan"/>
     <events name="planAccepted"/>
     <events name="planRejected"/>
-    <interfaces href="Types.xmi#//@interfaces.9"/>
-    <interfaces href="Types.xmi#//@interfaces.4"/>
+    <interfaces href="Types.xmi#//@interfaces.24"/>
     <interfaces href="Types.xmi#//@interfaces.25"/>
-    <interfaces href="Types.xmi#//@interfaces.22"/>
     <interfaces href="Types.xmi#//@interfaces.27"/>
+    <interfaces href="Types.xmi#//@interfaces.31"/>
+    <interfaces href="Types.xmi#//@interfaces.6"/>
     <nodes xsi:type="robochart:Initial" name="i0"/>
     <nodes xsi:type="robochart:State" name="Initialise"/>
     <nodes xsi:type="robochart:State" name="WaitForSignal"/>

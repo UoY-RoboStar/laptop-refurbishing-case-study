@@ -16,14 +16,13 @@ interface Gripper {
 
 // an image taken by the camera, with RGB values for each pixel
 datatype ImageData {
-	pixels : Seq(Seq(nat*nat*nat)) // indexed as pixels[x][y], so the inner seq is a row and size(pixels) == height
+	pixels : Seq(Seq(nat*nat*nat))
 	height : nat
 	width : nat
 }
 
 interface Camera {
 	event getImage : ImageData
-	event lightLevel : real
 }
 
 interface ArmSensors {
@@ -42,12 +41,19 @@ robotic platform UR5WithCamera {
 // Managed System //
 ////////////////////
 
+// the three vision models that the system can use, trained on different lighting conditions
+enumeration VisionModel {
+	DimModel
+	NormalModel
+	BrightModel
+}
+
 // identifies the position of an object in an image and the confidence of its detection
 datatype EstimatedPosition {
 	// topLeft and bottomRight use nat because they index pixels in a sequence
 	topLeft : nat * nat
 	bottomRight : nat * nat
-	confidence : real
+	uncertainty : real
 }
 
 // an image taken by the camera with metadata about the position and orientation
@@ -64,8 +70,8 @@ layer ScrewDetection : ControlLayer {
 	uses ArmSensors
 	uses Camera
 	
-	outputs = imageTaken : ScrewImageData, ambientLight : real, currentModel : nat;
-	inputs = switchModel : nat;
+	outputs = imageTaken : ScrewImageData, modelChanged : VisionModel;
+	inputs = newPlan : AdaptationPlan;
 	
 };
 
@@ -73,35 +79,48 @@ layer ScrewDetection : ControlLayer {
 // MAPLE-K layer //
 ///////////////////
 
+enumeration AdaptationPlan {
+	NewModel(VisionModel)
+	MoveDown
+	StopRobot
+}
+
 layer Adaptation : PlanningLayer {
-	inputs = imageTaken : ScrewImageData, ambientLight : real, currentModel : nat;
-	outputs = switchModel : nat;
+	inputs = imageTaken : ScrewImageData, modelChanged : VisionModel;
+	outputs = newPlan : AdaptationPlan;
 	
 	pattern = MAPLE-K;
 	
 	monitor {
 		// record the images that have been taken and ambient light levels, pass to analyse when new image comes in
-		inputs = imageTaken, ambientLight, currentModel;
-		processed_data_type = ScrewImageData * real * nat;
-		recorded_data = imagesWithLight : Seq(ScrewImageData * real * nat);
+		inputs = imageTaken, modelChanged;
+		processed_data_type = ScrewImageData;
+		recorded_data = images : Seq(ScrewImageData);
+		recorded_data = currentModel : nat;
 	}
 	analyse {
-		// evaluate confidence trends, classify lighting, flag uncertainty
-		// give indices of images in recorded data that have unacceptable uncertainty with current lighting conditions
-		analysis_results = imagesWithPoorLight : Seq(nat);
+		// compute average uncertainty and check against threshold
+		analysis_results = averageUncertainty : nat;
 	}
 	plan {
-		// choose index of new model in array of models
-		plan_data = newModel : nat;
+		// estimate light level, pick new model that works best for that light level,
+		// if plan rejected (proposedPlan == NewModel, triedThirdModel == false), try a third model
+		// if plan still rejected (proposedPlan == NewModel, triedThirdModel == true), suggest moving down
+		// if plan still rejected (proposedPlan == MoveDown), order robot to stop
+		plan_data = estimatedLight : real;
+		plan_data = proposedPlan : AdaptationPlan;
+		plan_data = triedThirdModel : boolean;
 	}
 	legitimate {
-		// evaluate the problematic images identified in analysis using new model
-		// record new screw detections with confidences for each image
-		verification_info = newConfidences : Seq(Seq(EstimatedPosition));
+		// if the plan is to change model, recheck the images using the new model, check the new average uncertainty against the threshold
+		// if the plan is to move down, compute the new position and check for a collision
+		// if the plan is to stop, accept it unconditionally (this should always be safe)
+		verification_info = newAverageUncertainty : real;
+		verification_info = newPosition : real * real * real;
 	}
 	execute {
-		// issue the commands in order (possibly waiting to make sure changes of position can take effect)
-		outputs = switchModel;
+		// send the new plan for the managed system to act on, then signal the adaptation as complete
+		outputs = newPlan;
 	}
 };
 
@@ -111,7 +130,6 @@ layer Adaptation : PlanningLayer {
 
 connections =
 	ScrewDetection on imageTaken to Adaptation on imageTaken,
-	ScrewDetection on ambientLight to Adaptation on ambientLight,
-	ScrewDetection on currentModel to Adaptation on currentModel,
-	Adaptation on switchModel to ScrewDetection on switchModel;
+	ScrewDetection on modelChanged to Adaptation on modelChanged,
+	Adaptation on newPlan to ScrewDetection on newPlan;
 	

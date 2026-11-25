@@ -4,51 +4,35 @@
   <machines name="Adaptation_Analyse">
     <variableList>
       <vars name="data">
-        <type xsi:type="robochart:ProductType">
-          <types xsi:type="robochart:TypeRef">
-            <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
-          </types>
-          <types xsi:type="robochart:TypeRef">
-            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
-          </types>
-          <types xsi:type="robochart:TypeRef">
-            <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
-          </types>
+        <type xsi:type="robochart:TypeRef">
+          <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.3"/>
         </type>
       </vars>
     </variableList>
     <variableList>
       <vars name="anomalyDetected">
         <type xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/boolean"/>
         </type>
       </vars>
     </variableList>
     <variableList>
       <vars name="awaitingAdaptation">
         <type xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.3"/>
+          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/boolean"/>
         </type>
       </vars>
     </variableList>
     <events name="anomalyFound"/>
     <events name="processedData">
-      <type xsi:type="robochart:ProductType">
-        <types xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
-        </types>
-        <types xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
-        </types>
-        <types xsi:type="robochart:TypeRef">
-          <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
-        </types>
+      <type xsi:type="robochart:TypeRef">
+        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.3"/>
       </type>
     </events>
     <events name="adaptationCompleted"/>
-    <interfaces href="Types.xmi#//@interfaces.22"/>
-    <interfaces href="Types.xmi#//@interfaces.18"/>
-    <interfaces href="Types.xmi#//@interfaces.25"/>
+    <interfaces href="Types.xmi#//@interfaces.31"/>
+    <interfaces href="Types.xmi#//@interfaces.23"/>
+    <interfaces href="Types.xmi#//@interfaces.27"/>
     <nodes xsi:type="robochart:Initial" name="i0"/>
     <nodes xsi:type="robochart:State" name="Initialise"/>
     <nodes xsi:type="robochart:State" name="WaitForData"/>

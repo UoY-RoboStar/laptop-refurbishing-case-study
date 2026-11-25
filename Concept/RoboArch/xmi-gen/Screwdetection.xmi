@@ -2,25 +2,20 @@
 <robochart:RCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart" name="Screwdetection">
   <imports importedNamespace="ScrewDetection::*"/>
   <imports importedNamespace="Types::*"/>
-  <controllers name="ScrewDetection">
-    <events name="switchModel">
+  <controllers xsi:type="robochart:ControllerDef" name="ScrewDetection">
+    <events name="newPlan">
       <type xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        <ref xsi:type="robochart:Enumeration" href="Types.xmi#//@types.4"/>
       </type>
     </events>
     <events name="imageTaken">
       <type xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
+        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.3"/>
       </type>
     </events>
-    <events name="ambientLight">
+    <events name="modelChanged">
       <type xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
-      </type>
-    </events>
-    <events name="currentModel">
-      <type xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+        <ref xsi:type="robochart:Enumeration" href="Types.xmi#//@types.1"/>
       </type>
     </events>
     <rInterfaces href="Types.xmi#//@interfaces.0"/>

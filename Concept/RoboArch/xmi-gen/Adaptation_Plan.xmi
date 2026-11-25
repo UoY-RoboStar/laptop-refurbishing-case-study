@@ -5,11 +5,11 @@
     <events name="planningCompleted"/>
     <events name="planRejected"/>
     <events name="requestPlan"/>
+    <interfaces href="Types.xmi#//@interfaces.6"/>
+    <interfaces href="Types.xmi#//@interfaces.17"/>
     <interfaces href="Types.xmi#//@interfaces.27"/>
-    <interfaces href="Types.xmi#//@interfaces.12"/>
-    <interfaces href="Types.xmi#//@interfaces.25"/>
-    <interfaces href="Types.xmi#//@interfaces.9"/>
-    <interfaces href="Types.xmi#//@interfaces.22"/>
+    <interfaces href="Types.xmi#//@interfaces.24"/>
+    <interfaces href="Types.xmi#//@interfaces.31"/>
     <nodes xsi:type="robochart:Initial" name="i0"/>
     <nodes xsi:type="robochart:State" name="Initialise"/>
     <nodes xsi:type="robochart:State" name="WaitForSignal"/>

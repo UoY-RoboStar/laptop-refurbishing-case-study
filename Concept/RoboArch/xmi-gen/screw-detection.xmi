@@ -13,12 +13,8 @@
         <efrom href="Screwdetection.xmi#//@controllers.0/@events.2"/>
         <eto href="Adaptation.xmi#//@controllers.0/@events.1"/>
       </connections>
-      <connections from="/0/@modules.0/@nodes.0" to="/0/@modules.0/@nodes.1" async="true">
-        <efrom href="Screwdetection.xmi#//@controllers.0/@events.3"/>
-        <eto href="Adaptation.xmi#//@controllers.0/@events.2"/>
-      </connections>
       <connections from="/0/@modules.0/@nodes.1" to="/0/@modules.0/@nodes.0" async="true">
-        <efrom href="Adaptation.xmi#//@controllers.0/@events.3"/>
+        <efrom href="Adaptation.xmi#//@controllers.0/@events.2"/>
         <eto href="Screwdetection.xmi#//@controllers.0/@events.0"/>
       </connections>
       <nodes xsi:type="robochart:ControllerRef" name="ctrl_ref0">
@@ -36,42 +32,40 @@
     </modules>
   </robochart:RCPackage>
   <robochart:SeqType>
-    <domain xsi:type="robochart:ProductType">
-      <types xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
-      </types>
-      <types xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
-      </types>
-      <types xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
-      </types>
-    </domain>
-  </robochart:SeqType>
-  <robochart:SeqType>
     <domain xsi:type="robochart:TypeRef">
-      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.3"/>
     </domain>
   </robochart:SeqType>
   <robochart:TypeRef>
-    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/nat"/>
   </robochart:TypeRef>
-  <robochart:SeqType>
-    <domain xsi:type="robochart:SeqType">
-      <domain xsi:type="robochart:TypeRef">
-        <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.1"/>
-      </domain>
-    </domain>
-  </robochart:SeqType>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/nat"/>
+  </robochart:TypeRef>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/real"/>
+  </robochart:TypeRef>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:Enumeration" href="Types.xmi#//@types.4"/>
+  </robochart:TypeRef>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/boolean"/>
+  </robochart:TypeRef>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/real"/>
+  </robochart:TypeRef>
   <robochart:ProductType>
     <types xsi:type="robochart:TypeRef">
-      <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.2"/>
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/real"/>
     </types>
     <types xsi:type="robochart:TypeRef">
-      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.4"/>
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/real"/>
     </types>
     <types xsi:type="robochart:TypeRef">
-      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//@types.0"/>
+      <ref xsi:type="robochart:PrimitiveType" href="platform:/plugin/circus.robocalc.robochart.textual/lib/robochart/core.rct#//types/real"/>
     </types>
   </robochart:ProductType>
+  <robochart:TypeRef>
+    <ref xsi:type="robochart:RecordType" href="Types.xmi#//@types.3"/>
+  </robochart:TypeRef>
 </xmi:XMI>

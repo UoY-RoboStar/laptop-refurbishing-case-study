@@ -4,8 +4,8 @@
   <machines name="Adaptation_Execute">
     <events name="executePlan"/>
     <events name="adaptationCompleted"/>
-    <interfaces href="Types.xmi#//@interfaces.27"/>
-    <interfaces href="Types.xmi#//@interfaces.30"/>
+    <interfaces href="Types.xmi#//@interfaces.6"/>
+    <interfaces href="Types.xmi#//@interfaces.8"/>
     <nodes xsi:type="robochart:Initial" name="i0"/>
     <nodes xsi:type="robochart:State" name="Initialise"/>
     <nodes xsi:type="robochart:State" name="WaitForSignal"/>

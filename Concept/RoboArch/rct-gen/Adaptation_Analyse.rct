@@ -1,9 +1,9 @@
 package Adaptation_Analyse import Types::* stm Adaptation_Analyse {
-	uses Adaptation_AnalysisResults_events uses Adaptation_AnalysisResults_set_events uses Adaptation_RecordedData_events var data : ScrewImageData * real * nat
+	uses Adaptation_AnalysisResults_events uses Adaptation_AnalysisResults_set_events uses Adaptation_RecordedData_events var data : ScrewImageData
 	var anomalyDetected : boolean
 	var awaitingAdaptation : boolean
 	event anomalyFound
-	event processedData : ScrewImageData * real * nat
+	event processedData : ScrewImageData
 	event adaptationCompleted
 	initial i0
 	state Initialise {

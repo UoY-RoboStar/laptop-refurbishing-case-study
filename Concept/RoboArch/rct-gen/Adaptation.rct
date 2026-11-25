@@ -1,51 +1,77 @@
-package Adaptation import ScrewDetection::* import Adaptation_Legitimate::* import Adaptation_Execute::* import Adaptation_Knowledge::* import Adaptation_Analyse::* import Adaptation_Plan::* import Adaptation_Monitor::* import Types::* controller Adaptation {
+package Adaptation import ScrewDetection::* import Adaptation_Execute::* import Adaptation_Plan::* import Adaptation_Monitor::* import Adaptation_Legitimate::* import Adaptation_Knowledge::* import Adaptation_Analyse::* import Types::* controller Adaptation {
 	event imageTaken : ScrewImageData
-	event ambientLight : real
-	event currentModel : nat
-	event switchModel : nat
-	sref stm_ref5 = Adaptation_Knowledge
-	sref stm_ref2 = Adaptation_Plan
+	event modelChanged : VisionModel
+	event newPlan : AdaptationPlan
 	sref stm_ref4 = Adaptation_Execute
+	sref stm_ref5 = Adaptation_Knowledge
 	sref stm_ref3 = Adaptation_Legitimate
-	sref stm_ref1 = Adaptation_Analyse
 	sref stm_ref0 = Adaptation_Monitor
-	connection stm_ref3 on set_newConfidences to stm_ref5 on set_newConfidences
-	connection stm_ref0 on set_imagesWithLight to stm_ref5 on set_imagesWithLight
-	connection stm_ref3 on get_newModel to stm_ref5 on get_newModel_Legitimate
-	connection stm_ref5 on imagesWithPoorLight to stm_ref1 on imagesWithPoorLight
-	connection stm_ref3 on get_newConfidences to stm_ref5 on get_newConfidences
+	sref stm_ref2 = Adaptation_Plan
+	sref stm_ref1 = Adaptation_Analyse
+	connection stm_ref0 on get_images to stm_ref5 on get_images
+	connection stm_ref1 on set_averageUncertainty to stm_ref5 on set_averageUncertainty
 	connection stm_ref2 on planningCompleted to stm_ref3 on verifyPlan
-	connection stm_ref1 on get_imagesWithLight to stm_ref5 on get_imagesWithLight_Analyse
-	connection Adaptation on imageTaken to stm_ref0 on imageTaken
-	connection stm_ref1 on get_imagesWithPoorLight to stm_ref5 on get_imagesWithPoorLight
-	connection stm_ref5 on newConfidences to stm_ref3 on newConfidences
-	connection stm_ref2 on set_newModel to stm_ref5 on set_newModel
-	connection stm_ref2 on get_imagesWithLight to stm_ref5 on get_imagesWithLight_Plan
-	connection stm_ref2 on get_imagesWithPoorLight to stm_ref5 on get_imagesWithPoorLight_Plan
-	connection stm_ref5 on newModel to stm_ref2 on newModel
-	connection stm_ref3 on get_imagesWithPoorLight to stm_ref5 on get_imagesWithPoorLight_Legitimate
+	connection stm_ref5 on triedThirdModel to stm_ref2 on triedThirdModel
+	connection stm_ref5 on triedThirdModel_Legitimate to stm_ref3 on triedThirdModel
+	connection stm_ref5 on images_Analyse to stm_ref1 on images
+	connection stm_ref4 on get_triedThirdModel to stm_ref5 on get_triedThirdModel_Execute
+	connection stm_ref2 on get_estimatedLight to stm_ref5 on get_estimatedLight
+	connection stm_ref3 on get_currentModel to stm_ref5 on get_currentModel_Legitimate
 	connection stm_ref4 on adaptationCompleted to stm_ref1 on adaptationCompleted
-	connection stm_ref2 on get_newModel to stm_ref5 on get_newModel
-	connection stm_ref5 on newModel_Legitimate to stm_ref3 on newModel
-	connection stm_ref5 on imagesWithLight_Analyse to stm_ref1 on imagesWithLight
-	connection stm_ref5 on imagesWithPoorLight_Plan to stm_ref2 on imagesWithPoorLight
-	connection stm_ref5 on newConfidences_Plan to stm_ref2 on newConfidences
-	connection stm_ref1 on anomalyFound to stm_ref2 on requestPlan
-	connection stm_ref5 on imagesWithLight_Legitimate to stm_ref3 on imagesWithLight
-	connection stm_ref5 on newModel_Execute to stm_ref4 on newModel
-	connection Adaptation on ambientLight to stm_ref0 on ambientLight
-	connection Adaptation on currentModel to stm_ref0 on currentModel
-	connection stm_ref1 on set_imagesWithPoorLight to stm_ref5 on set_imagesWithPoorLight
-	connection stm_ref5 on imagesWithLight to stm_ref0 on imagesWithLight
-	connection stm_ref3 on planRejected to stm_ref2 on planRejected
-	connection stm_ref2 on get_newConfidences to stm_ref5 on get_newConfidences_Plan
+	connection stm_ref2 on get_averageUncertainty to stm_ref5 on get_averageUncertainty_Plan
 	connection stm_ref3 on planAccepted to stm_ref4 on executePlan
-	connection stm_ref0 on get_imagesWithLight to stm_ref5 on get_imagesWithLight
-	connection stm_ref5 on imagesWithLight_Plan to stm_ref2 on imagesWithLight
-	connection stm_ref5 on imagesWithPoorLight_Legitimate to stm_ref3 on imagesWithPoorLight
-	connection stm_ref3 on get_imagesWithLight to stm_ref5 on get_imagesWithLight_Legitimate
-	connection stm_ref4 on switchModel to Adaptation on switchModel
-	connection stm_ref4 on get_newModel to stm_ref5 on get_newModel_Execute
+	connection stm_ref5 on newAverageUncertainty_Plan to stm_ref2 on newAverageUncertainty
+	connection stm_ref3 on get_images to stm_ref5 on get_images_Legitimate
+	connection stm_ref3 on get_averageUncertainty to stm_ref5 on get_averageUncertainty_Legitimate
+	connection stm_ref5 on averageUncertainty_Legitimate to stm_ref3 on averageUncertainty
+	connection stm_ref3 on get_proposedPlan to stm_ref5 on get_proposedPlan_Legitimate
+	connection stm_ref0 on set_currentModel to stm_ref5 on set_currentModel
+	connection Adaptation on imageTaken to stm_ref0 on imageTaken
+	connection stm_ref5 on images_Legitimate to stm_ref3 on images
+	connection stm_ref4 on newPlan to Adaptation on newPlan
+	connection stm_ref5 on averageUncertainty_Plan to stm_ref2 on averageUncertainty
+	connection stm_ref5 on proposedPlan_Execute to stm_ref4 on proposedPlan
+	connection stm_ref4 on get_estimatedLight to stm_ref5 on get_estimatedLight_Execute
+	connection stm_ref5 on images_Plan to stm_ref2 on images
+	connection stm_ref3 on get_triedThirdModel to stm_ref5 on get_triedThirdModel_Legitimate
+	connection stm_ref0 on get_currentModel to stm_ref5 on get_currentModel
+	connection stm_ref1 on anomalyFound to stm_ref2 on requestPlan
+	connection stm_ref0 on set_images to stm_ref5 on set_images
+	connection stm_ref2 on get_proposedPlan to stm_ref5 on get_proposedPlan
+	connection stm_ref5 on estimatedLight_Execute to stm_ref4 on estimatedLight
+	connection stm_ref3 on set_newAverageUncertainty to stm_ref5 on set_newAverageUncertainty
+	connection stm_ref5 on averageUncertainty to stm_ref1 on averageUncertainty
+	connection stm_ref2 on get_newPosition to stm_ref5 on get_newPosition_Plan
+	connection stm_ref3 on get_newPosition to stm_ref5 on get_newPosition
+	connection stm_ref5 on currentModel_Plan to stm_ref2 on currentModel
+	connection stm_ref1 on get_currentModel to stm_ref5 on get_currentModel_Analyse
+	connection stm_ref1 on get_images to stm_ref5 on get_images_Analyse
+	connection stm_ref5 on currentModel_Legitimate to stm_ref3 on currentModel
+	connection stm_ref5 on triedThirdModel_Execute to stm_ref4 on triedThirdModel
+	connection stm_ref2 on set_triedThirdModel to stm_ref5 on set_triedThirdModel
+	connection stm_ref2 on get_currentModel to stm_ref5 on get_currentModel_Plan
+	connection stm_ref2 on get_triedThirdModel to stm_ref5 on get_triedThirdModel
+	connection stm_ref5 on proposedPlan_Legitimate to stm_ref3 on proposedPlan
+	connection stm_ref3 on get_newAverageUncertainty to stm_ref5 on get_newAverageUncertainty
+	connection stm_ref3 on planRejected to stm_ref2 on planRejected
+	connection stm_ref4 on get_proposedPlan to stm_ref5 on get_proposedPlan_Execute
+	connection stm_ref5 on proposedPlan to stm_ref2 on proposedPlan
 	connection stm_ref0 on processedData to stm_ref1 on processedData
+	connection stm_ref5 on images to stm_ref0 on images
+	connection stm_ref1 on get_averageUncertainty to stm_ref5 on get_averageUncertainty
+	connection stm_ref2 on get_images to stm_ref5 on get_images_Plan
+	connection stm_ref5 on newPosition to stm_ref3 on newPosition
+	connection stm_ref5 on estimatedLight to stm_ref2 on estimatedLight
+	connection stm_ref2 on set_proposedPlan to stm_ref5 on set_proposedPlan
+	connection stm_ref5 on newAverageUncertainty to stm_ref3 on newAverageUncertainty
+	connection stm_ref2 on set_estimatedLight to stm_ref5 on set_estimatedLight
+	connection stm_ref5 on newPosition_Plan to stm_ref2 on newPosition
+	connection Adaptation on modelChanged to stm_ref0 on modelChanged
+	connection stm_ref5 on currentModel_Analyse to stm_ref1 on currentModel
+	connection stm_ref3 on get_estimatedLight to stm_ref5 on get_estimatedLight_Legitimate
+	connection stm_ref2 on get_newAverageUncertainty to stm_ref5 on get_newAverageUncertainty_Plan
+	connection stm_ref5 on estimatedLight_Legitimate to stm_ref3 on estimatedLight
+	connection stm_ref5 on currentModel to stm_ref0 on currentModel
+	connection stm_ref3 on set_newPosition to stm_ref5 on set_newPosition
 }
 
